@@ -22,8 +22,6 @@ const Form = styled.form`
     button {
         margin: 10px;
     }
-
-
 `;
 
 const LabelAndField = styled.li`
@@ -73,3 +71,8 @@ class NewForm extends React.Component {
 }
 
 export default NewForm;
+
+// we want to specify which props this Form takes
+// using PropTypes
+// we also want to use defaultProps to add some 
+// sensible data in case user does not supply unrequired props
