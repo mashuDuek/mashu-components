@@ -6,6 +6,7 @@ const Input = styled.input``;
 
 export default (props) => (
     <Input
+        required={props.required}
         type={props.type}
         placeholder={props.placeholder}
         onChange={props.onChange}

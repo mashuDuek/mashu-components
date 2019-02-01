@@ -6,6 +6,7 @@ const TextArea = styled.textarea``;
 
 export default (props) => (
     <TextArea
+        required={props.required}
         type={props.type}
         placeholder={props.placeholder}
         onChange={props.onChange}

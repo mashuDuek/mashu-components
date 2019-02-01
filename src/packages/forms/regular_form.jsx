@@ -8,11 +8,22 @@ import Field from './field';
 
 const Form = styled.form`
     padding: 20px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end; 
+    border: 1px solid lightgray;
+    
     input, textarea, label {
-        margin: 10px;
         width: 80%;
+        margin: 10px;
     } 
+
+    button {
+        margin: 10px;
+    }
+
+
 `;
 
 const LabelAndField = styled.li`
