@@ -7,7 +7,22 @@ import Button from './button';
 import TextArea from './textarea';
 import Label from './label';
 
-const Form = styled.form``;
+const Form = styled.form`
+    padding: 20px;
+    
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center; 
+        align-items: center;
+    }
+
+    input, textarea {
+        margin: 10px;
+        width: 80%;
+    } 
+`;
 
 class NewForm extends React.Component {
     state = {};
@@ -24,7 +39,6 @@ class NewForm extends React.Component {
     }
 
     fields = () => {
-        debugger
         return this.props.fields.map((field, idx) => {
             if (field.tag === 'input') {
                 return (
