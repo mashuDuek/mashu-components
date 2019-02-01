@@ -6,6 +6,7 @@ import Input from './input';
 import Button from './button';
 import TextArea from './textarea';
 import Label from './label';
+import List from './list'
 
 const Form = styled.form`
     padding: 20px;
@@ -18,10 +19,18 @@ const Form = styled.form`
         align-items: center;
     }
 
-    input, textarea {
+    input, textarea, label {
         margin: 10px;
         width: 80%;
     } 
+`;
+
+const LabelsAndFields = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 `;
 
 class NewForm extends React.Component {
@@ -38,31 +47,31 @@ class NewForm extends React.Component {
         this.props.onSubmit(this.state);
     }
 
+    labels = () => {
+        return this.props.fields.map((field, idx) => (
+            <Label text={field.label} key={idx}></Label>
+        ));
+    }
+
     fields = () => {
         return this.props.fields.map((field, idx) => {
             if (field.tag === 'input') {
                 return (
-                    <div>
-                        <Label text={field.label}></Label>
-                        <Input 
-                            key={idx}
-                            onChange={this.handleChange(field.label).bind(this)}
-                            placeholder={field.placeholder}
-                            type={field.type}>
-                        </Input> 
-                    </div>
+                    <Input 
+                        key={idx}
+                        onChange={this.handleChange(field.label).bind(this)}
+                        placeholder={field.placeholder}
+                        type={field.type}>
+                    </Input> 
                 )
             } else if (field.tag === 'textarea') {
                 return (
-                    <div>
-                        <Label text={field.label}></Label>
-                        <TextArea 
-                            key={idx}
-                            onChange={this.handleChange(field.label).bind(this)}
-                            placeholder={field.placeholder}
-                            type={field.type}>
-                        </TextArea> 
-                    </div>
+                    <TextArea 
+                        key={idx}
+                        onChange={this.handleChange(field.label).bind(this)}
+                        placeholder={field.placeholder}
+                        type={field.type}>
+                    </TextArea> 
                 )
             }
         });
@@ -71,7 +80,10 @@ class NewForm extends React.Component {
     render () {
         return (
             <Form onSubmit={this.handleSubmit}>
-                {this.fields()}
+                <LabelsAndFields>
+                    <List items={this.labels()}></List>
+                    <List items={this.fields()}></List>
+                </LabelsAndFields>
                 <Button text={this.props.buttonText}></Button>
             </Form>
         )
