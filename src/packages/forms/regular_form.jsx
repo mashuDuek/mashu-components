@@ -32,7 +32,7 @@ const LabelAndField = styled.li`
     align-items: center;
 `;
 
-const LabelsAndFields = styled.div`
+const LabelAndField = styled.li`
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -71,10 +71,7 @@ class NewForm extends React.Component {
     render () {
         return (
             <Form onSubmit={this.handleSubmit}>
-                <LabelsAndFields>
-                    <List items={this.labels()}></List>
-                    <List items={this.fields()}></List>
-                </LabelsAndFields>
+                {this.fields()}
                 <Button text={this.props.buttonText}></Button>
             </Form>
         )
