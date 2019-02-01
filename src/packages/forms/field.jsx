@@ -9,6 +9,7 @@ export default ({ field, onChange }) => {
         case 'input': {
             return (
                 <Input
+                    required={field.required}
                     onChange={onChange}
                     placeholder={field.placeholder}
                     type={field.type}>

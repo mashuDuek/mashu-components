@@ -8,11 +8,20 @@ import Field from './field';
 
 const Form = styled.form`
     padding: 20px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end; 
+    border: 1px solid lightgray;
+    
     input, textarea, label {
-        margin: 10px;
         width: 80%;
+        margin: 10px;
     } 
+
+    button {
+        margin: 10px;
+    }
 `;
 
 const LabelAndField = styled.li`
@@ -62,3 +71,8 @@ class NewForm extends React.Component {
 }
 
 export default NewForm;
+
+// we want to specify which props this Form takes
+// using PropTypes
+// we also want to use defaultProps to add some 
+// sensible data in case user does not supply unrequired props
