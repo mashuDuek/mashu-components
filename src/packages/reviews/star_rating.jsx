@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import StarInput from './star_input';
+const StarInput = styled.input.attrs({ type: 'radio' })`
+    checked: ${({ checked }) => checked ? true : false}
+`;
 
 const stars = (rating) => {
     const array = [];
-    for (let index = 1; index < 6; index++) {
+    for (let idx = 1; idx < 6; idx++) {
         array.push(
             <StarInput 
-                key={index} 
-                value={index}
-                checked={rating >= index ? true : false} 
+                key={idx} 
+                value={idx}
+                checked={rating >= idx ? true : false} 
             >
             </StarInput>
         )

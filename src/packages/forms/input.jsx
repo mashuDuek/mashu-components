@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
-const Input = styled.input``;
+const Input = styled.input`
+    border-radius: 3px;
+`;
 
 export default (props) => (
     <Input
