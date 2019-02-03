@@ -31,21 +31,15 @@ class ReviewForm extends React.Component {
         this.props.onSubmit(this.state);
     }
 
-    handleChange = (field) => {
-        return (e) => {
-            this.setState({ [field]: e.target.value });
-        }
-    }
-
-    handleRatingClick = (e) => {
-        this.setState({ rating: e.target.value });
+    handleChange = (field) => (e) => {
+        this.setState({ [field]: e.target.value });
     }
 
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
                 <StarRating 
-                    clickHandler={this.handleRatingClick} 
+                    clickHandler={this.handleChange('rating').bind(this)} 
                     rating={this.state.rating}>
                 </StarRating>
                 {this.props.fields.map((field, idx) => (this.field(field,idx)))}
