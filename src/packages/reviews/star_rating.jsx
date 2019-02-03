@@ -1,28 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StarInput = styled.input.attrs({ type: 'radio' })`
-    checked: ${({ checked }) => checked ? true : false}
+const InputList = styled.ol`
+    width: 100%;
+    padding: 0px;
+    display: flex; 
+    justify-content: space-around;
+    list-style: none;
 `;
 
-const stars = (rating) => {
-    const array = [];
-    for (let idx = 1; idx < 6; idx++) {
-        array.push(
-            <StarInput 
-                key={idx} 
-                value={idx}
-                checked={rating >= idx ? true : false} 
-            >
-            </StarInput>
-        )
-    };
+const StarInput = styled.input`
+    color: transparent;
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+    border: 1px solid black;
+    margin: 0px;
+    background-color: ${({ checked }) => checked ? 'black' : 'transparent' };
+`;
 
-    return array;
-}
+const stars = (handler, rating) => (
+    [...Array(5).keys()].map(idx => (
+        <StarInput 
+            key={idx}
+            value={idx + 1}
+            onClick={handler}
+            checked={rating >= (idx + 1)}>
+        </StarInput>
+    ))
+)
 
 export default ({ clickHandler, rating }) => (
-    <div onClick={clickHandler}>
-        {stars(rating)}
-    </div>
+    <InputList>
+        {stars(clickHandler, rating)}
+    </InputList>
 );
