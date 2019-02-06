@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const InputList = styled.ol`
+const InputList = styled.ul`
     width: 100%;
     padding: 0px;
     display: flex; 

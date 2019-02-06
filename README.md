@@ -1,3 +1,35 @@
+# Mashu Components 
+***
+### A bunch of React components created using `styled-components` 
+***
+#### Getting Started
+To start in development, run `yarn run storybook`. <br>
+Navigate to localhost:9009 if it didn't automatically open. <br>
+You shouldn't need to `npm install` or `yarn install` because `yarn.lock` is committed. 
+***
+#### File structure 
+You'll work in `./src`. <br>
+Inside there `./src/packages` contain the actual components we're creating
+and through `./src/stories` we put them on the window.
+***
+#### Contributing
+NEVER commit to master directly. <br> 
+Make a branch and open up a PR to merge it in to master. <br>
+
+This is a repo I actually want to keep and use in the future. <br>
+
+***
+##### Up and coming to the repo:
+the use of DefaultProps <br> 
+the use of RequiredProps <br>
+tests for every component written, as long as it has any UI 
+
+
+***
+
+THE BELOW IS THE README THAT CAME WITH CREAT REACT APP 
+NONE OF IT APPLIES TO YOU :) 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
