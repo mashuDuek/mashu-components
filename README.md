@@ -24,8 +24,9 @@ tests for every component written, as long as it has any UI
 
 ***
 
-THE BELOW IS THE README THAT CAME WITH CREAT REACT APP 
+THE BELOW IS THE README THAT CAME WITH CREATE REACT APP <br>
 NONE OF IT APPLIES TO YOU :) 
+***
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
