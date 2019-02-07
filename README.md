@@ -14,10 +14,7 @@ and through `./src/stories` we put them on the window.
 ***
 #### Contributing
 NEVER commit to master directly. <br> 
-Make a branch and open up a PR to merge it in to master. <br>
-
-This is a repo I actually want to keep and use in the future. <br>
-
+Make a branch and open up a PR, Mashu must approve all PRs. <br>
 ***
 ##### Up and coming to the repo:
 the use of DefaultProps <br> 
