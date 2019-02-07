@@ -17,13 +17,10 @@ NEVER commit to master directly. <br>
 Make a branch and open up a PR, Mashu must approve all PRs. <br>
 ***
 ##### Up and coming to the repo:
-the use of DefaultProps <br> 
-the use of RequiredProps <br>
-tests for every component written, as long as it has any UI 
-
-
+the use of DefaultProps to set requiredProps. <br>
+the use of knobs and add-ons to test UI in storybook. <br>
+tests for every component written, as long as it has any UI.
 ***
-
 THE BELOW IS THE README THAT CAME WITH CREATE REACT APP <br>
 NONE OF IT APPLIES TO YOU :) 
 ***
