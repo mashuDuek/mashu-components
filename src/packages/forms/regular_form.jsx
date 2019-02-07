@@ -32,14 +32,6 @@ const LabelAndField = styled.li`
     align-items: center;
 `;
 
-const LabelAndField = styled.li`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-`;
-
 class NewForm extends React.Component {
 
     state = {};

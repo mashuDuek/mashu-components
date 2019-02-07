@@ -9,9 +9,14 @@ import StarRating from './star_rating';
 const Form = styled.form`
     display: flex; 
     flex-direction: column;
-    padding: 50px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
+    padding: 20px;
+
+    button {
+        display: flex; 
+        align-self: flex-end;
+        justify-content: center;
+        width: 80px;
+    }
 `;
 
 class ReviewForm extends React.Component {
@@ -21,8 +26,7 @@ class ReviewForm extends React.Component {
         <Field 
             key={idx}
             field={field} 
-            onChange={this.handleChange(field.label).bind(this)}
-        >
+            onChange={this.handleChange(field.label).bind(this)}>
         </Field>
     );
 
@@ -32,7 +36,9 @@ class ReviewForm extends React.Component {
     }
 
     handleChange = (field) => (e) => {
-        this.setState({ [field]: e.target.value });
+        const { target: t } = e;
+        const v = t.outerHTML.includes('<i ') ? t.title : t.value; 
+        this.setState({ [field]: v });
     }
 
     render() {
