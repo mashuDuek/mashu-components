@@ -11,25 +11,15 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end; 
     border: 1px solid lightgray;
-    
-    input, textarea, label {
-        width: 80%;
-        margin: 10px;
-    } 
-
-    button {
-        margin: 10px;
-    }
 `;
 
 const LabelAndField = styled.li`
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 `;
 
 class NewForm extends React.Component {
@@ -75,4 +65,4 @@ export default NewForm;
 // we want to specify which props this Form takes
 // using PropTypes
 // we also want to use defaultProps to add some 
-// sensible data in case user does not supply unrequired props
+// sensible data in case user does not supply un-required props
