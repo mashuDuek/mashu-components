@@ -4,8 +4,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { Button, Welcome } from '@storybook/react/demo';
 
+import Button from './forms/button';
 import Form from './forms/regular_form';
 import ReviewForm from './reviews/review_form';
 // import ReviewList from './reviews/review_list';
@@ -15,6 +15,7 @@ storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo(
 // form module
 storiesOf('Form', module)
   .add('Regular Form', Form)
+  .add('Button', Button)
 
 // reviews module
 storiesOf('Reviews', module)
