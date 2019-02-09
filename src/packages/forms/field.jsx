@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Input from './input';
 import TextArea from './textarea';
 
-export default ({ field, onChange }) => {
+const Field = ({ field, onChange }) => {
     switch (field.tag) {
         case 'input': {
             return (
@@ -28,3 +28,17 @@ export default ({ field, onChange }) => {
         }
     }
 }
+
+Field.propTypes = {
+    required: PropTypes.boolean, 
+    onChange: PropTypes.func,
+    type: PropTypes.string,
+    placeholder: PropTypes.string.isRequired
+};
+
+Field.defaultProps = {
+    required: false, 
+    type: 'text'
+};
+
+export default Field;

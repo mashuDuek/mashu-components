@@ -9,7 +9,7 @@ const TextArea = styled.textarea`
     height: 100px;
 `;
 
-export default (props) => (
+const TA = (props) => (
     <TextArea
         required={props.required}
         type={props.type}
@@ -17,3 +17,17 @@ export default (props) => (
         onChange={props.onChange}
     ></TextArea>
 );
+
+TA.propTypes = {
+    required: PropTypes.boolean,
+    type: PropTypes.string,
+    placeholder: PropTypes.string.isRequired,
+    onChange: PropTypes.func 
+};
+
+TA.defaultProps = {
+    required: false, 
+    type: 'text'
+};
+
+export default TA;

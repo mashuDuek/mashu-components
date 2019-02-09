@@ -2,8 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Label = styled.label``;
+const Lbl = styled.label`
+    font-family: sans-serif;
+`;
 
-export default (props) => (
-    <Label>{props.text}</Label>
-)
+const Label = ({ text }) => (
+    <Lbl>{text}</Lbl>
+);
+
+Label.propTypes = {
+    text: PropTypes.string.isRequired
+};
+
+export default Label;
