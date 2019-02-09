@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 
 const TextArea = styled.textarea`
     border-radius: 3px;
-    border: 1px solid lightgray;
-    margin: 5px;
     height: 100px;
+    font-size: medium;
+    border: 1px solid lightgray;
+    padding: 3px;
+    width: 60%;
 `;
 
 const TA = (props) => (
@@ -14,8 +16,8 @@ const TA = (props) => (
         required={props.required}
         type={props.type}
         placeholder={props.placeholder}
-        onChange={props.onChange}
-    ></TextArea>
+        onChange={props.onChange}>
+    </TextArea>
 );
 
 TA.propTypes = {

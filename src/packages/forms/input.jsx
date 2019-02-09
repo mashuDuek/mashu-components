@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 
 const Ipt = styled.input`
     border-radius: 3px;
+    font-size: medium;
+    border: 1px solid lightgray;
+    padding: 3px;
+    width: ${({ type }) => type === 'date' ? 'fit-content' : '60%'};
 `;
 
 const Input = (props) => (
