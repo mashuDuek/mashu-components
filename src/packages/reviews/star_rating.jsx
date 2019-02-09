@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const InputList = styled.ul`
-    width: 100%;
+    width: 50%;
     padding: 0px;
     margin-bottom: 10px;
     margin-top: 0px;

@@ -32,7 +32,10 @@ class ReviewForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.onSubmit(this.state);
+        this.props.onSubmit({ 
+            review: this.state.review.trim(), 
+            rating: this.state.rating 
+        });
     }
 
     handleChange = (field) => (e) => {
