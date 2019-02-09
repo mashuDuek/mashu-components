@@ -10,12 +10,15 @@ const Form = styled.form`
     display: flex; 
     flex-direction: column;
     padding: 20px;
-
+    align-items: center;
+    
     button {
-        display: flex; 
-        align-self: flex-end;
-        justify-content: center;
-        width: 80px;
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    textarea {
+        margin-bottom: 15px;
     }
 `;
 
@@ -47,15 +50,22 @@ class ReviewForm extends React.Component {
     render() {
         return (
             <Form onSubmit={this.handleSubmit}>
+                {this.props.fields.map((field, idx) => (this.field(field,idx)))}
                 <StarRating 
                     clickHandler={this.handleChange('rating').bind(this)} 
                     rating={this.state.rating}>
                 </StarRating>
-                {this.props.fields.map((field, idx) => (this.field(field,idx)))}
                 <Button text={this.props.buttonText}></Button>
             </Form>
         )
     }
 }
+
+
+ReviewForm.propTpes = {
+    buttonText: PropTypes.string.isRequired,
+    fields: PropTypes.array,
+    onSubmit: PropTypes.func
+};
 
 export default ReviewForm;
