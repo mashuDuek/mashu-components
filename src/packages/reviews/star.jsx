@@ -40,7 +40,7 @@ const Star = styled.i`
 
 Star.propTypes = {
     checked: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.number.isRequired,
     onClick: PropTypes.func
 };
 
