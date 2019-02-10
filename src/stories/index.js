@@ -11,9 +11,11 @@ import TextArea from './forms/textarea';
 import Form from './forms/regular_form';
 
 import ReviewForm from './reviews/review_form';
+import Star from './reviews/star';
+import StarRating from './reviews/star_rating';
 
 // form module
-storiesOf('Form', module)
+storiesOf('Forms', module)
   .add('Regular Form', Form)
   .add('Button', Button)
   .add('Label', Label)
@@ -23,4 +25,6 @@ storiesOf('Form', module)
 // reviews module
 storiesOf('Reviews', module)
   .add('Review Form', ReviewForm)
+  .add('Star', Star)
+  .add('StarRating', StarRating)
   // .add('Review List', ReviewList)

@@ -8,7 +8,7 @@ const TextArea = styled.textarea`
     font-size: medium;
     border: 1px solid lightgray;
     padding: 3px;
-    width: 60%;
+    width: 80%;
 `;
 
 const TA = (props) => (
@@ -21,7 +21,7 @@ const TA = (props) => (
 );
 
 TA.propTypes = {
-    required: PropTypes.boolean,
+    required: PropTypes.bool,
     type: PropTypes.string,
     placeholder: PropTypes.string.isRequired,
     onChange: PropTypes.func 
