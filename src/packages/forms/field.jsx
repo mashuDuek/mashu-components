@@ -30,7 +30,7 @@ const Field = ({ field, onChange }) => {
 }
 
 Field.propTypes = {
-    required: PropTypes.boolean, 
+    required: PropTypes.bool, 
     onChange: PropTypes.func,
     type: PropTypes.string,
     placeholder: PropTypes.string.isRequired
