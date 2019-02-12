@@ -5,7 +5,7 @@ import StarInput from './star';
 const InputList = styled.ul`
     width: 50%;
     padding: 0px;
-    margin-bottom: 10px;
+    margin: 0px;
     margin-top: 0px;
     display: flex; 
     justify-content: space-around;

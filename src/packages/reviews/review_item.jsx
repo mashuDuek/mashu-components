@@ -12,6 +12,7 @@ const Review = styled.li`
     align-items: center;
     padding: 20px;
     text-align: center;
+    
 `;
 
 const UserAndStarWrap = styled.section`
@@ -22,13 +23,14 @@ const UserAndStarWrap = styled.section`
 `;
 
 const Username = styled.span`
-    font-size: large;
     font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
 `;
 
 const Text = styled.p`
     font-family: sans-serif;
-    font-size: large;
+    font-size: 20px;
 `;
 
 const ReviewItem = (props) => (
