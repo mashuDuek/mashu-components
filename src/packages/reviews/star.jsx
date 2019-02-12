@@ -5,7 +5,6 @@ const Star = styled.i`
     height: 0;
     width: 0;
     margin: 15px;
-
     position: relative;
     border-right:  .3em solid transparent;
     border-bottom: .7em  solid ${({ checked }) => checked ? '#FC0' : '#E7EAD5'};
@@ -41,7 +40,7 @@ const Star = styled.i`
 
 Star.propTypes = {
     checked: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.number.isRequired,
     onClick: PropTypes.func
 };
 

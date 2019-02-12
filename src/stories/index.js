@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
@@ -11,8 +9,8 @@ import TextArea from './forms/textarea';
 import Form from './forms/regular_form';
 
 import ReviewForm from './reviews/review_form';
-import Star from './reviews/star';
 import StarRating from './reviews/star_rating';
+import ReviewItem from './reviews/review_item';
 
 // form module
 storiesOf('Forms', module)
@@ -25,6 +23,6 @@ storiesOf('Forms', module)
 // reviews module
 storiesOf('Reviews', module)
   .add('Review Form', ReviewForm)
-  .add('Star', Star)
   .add('StarRating', StarRating)
+  .add('ReviewItem', ReviewItem)
   // .add('Review List', ReviewList)
