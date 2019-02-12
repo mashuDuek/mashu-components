@@ -11,14 +11,12 @@ const Review = styled.li`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    text-align: center;
-    
 `;
 
 const UserAndStarWrap = styled.section`
     display: flex; 
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
 `;
 
