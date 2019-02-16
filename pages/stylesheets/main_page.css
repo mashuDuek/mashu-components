@@ -1,0 +1,20 @@
+.main {
+    display: flex; 
+    flex-direction: row;
+    height: 100vh;
+}
+
+.routing-bar {
+    background-color: #F69F6D;
+}
+
+.components {
+    display: flex;
+    height: 80%;
+    width: 80%;
+    border: 1px solid lightgray;
+    align-self: center;
+    justify-self: unset;
+    padding: 30px;
+    justify-content: center;
+}
