@@ -5,6 +5,7 @@ import Forms from '../../src/stories/forms/regular_form';
 
 export default () => (
     <HashRouter>
+        <a href="/form">Form</a>
         <Route component={Forms} path="/form"></Route>
     </HashRouter>
 );
