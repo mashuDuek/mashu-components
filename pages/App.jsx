@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import Organizer from './components/organizer';
 
 class App extends Component {
     render() {
         return (
-            <h1>the new one</h1>
+            <div>
+                <Organizer></Organizer>
+            </div>
         );
     }
 }
