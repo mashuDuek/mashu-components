@@ -48466,8 +48466,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../src/packages/forms/input */ "./src/packages/forms/input.jsx");
-/* harmony import */ var _src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../src/packages/forms/button */ "./src/packages/forms/button.jsx");
-/* harmony import */ var _src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../src/packages/forms/label */ "./src/packages/forms/label.jsx");
+/* harmony import */ var _src_packages_forms_dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../src/packages/forms/dropdown */ "./src/packages/forms/dropdown.jsx");
+/* harmony import */ var _src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../src/packages/forms/button */ "./src/packages/forms/button.jsx");
+/* harmony import */ var _src_packages_forms_label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../src/packages/forms/label */ "./src/packages/forms/label.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48487,6 +48488,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -48537,19 +48539,23 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input",
         key: "y"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_4__["default"], {
         text: "html tag:"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "pet-select",
-        onChange: this.handleChange('tag')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "input",
-        defaultValue: true
-      }, "input"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "textarea"
-      }, "textarea"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_dropdown__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        onChange: this.handleChange('tag'),
+        options: [{
+          value: 'input',
+          text: 'input'
+        }, {
+          value: 'textarea',
+          text: 'textarea'
+        }, {
+          value: 'dropdown',
+          text: 'dropdown'
+        }]
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_4__["default"], {
         text: "type:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onChange: this.handleChange('type'),
@@ -48557,7 +48563,7 @@ function (_React$Component) {
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_4__["default"], {
         text: "label:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onChange: this.handleChange('label'),
@@ -48565,13 +48571,13 @@ function (_React$Component) {
         required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_4__["default"], {
         text: "placeholder:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onChange: this.handleChange('placeholder'),
         placeholder: "eg. Please type your name here",
         required: true
-      })), this.successfulAdd(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      })), this.successfulAdd(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: "Add"
       }));
     }
@@ -49032,6 +49038,106 @@ Button.propTypes = {
 
 /***/ }),
 
+/***/ "./src/packages/forms/dropdown.jsx":
+/*!*****************************************!*\
+  !*** ./src/packages/forms/dropdown.jsx ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _dropdown_option__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dropdown_option */ "./src/packages/forms/dropdown_option.jsx");
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    border-radius: 3px;\n    font-size: medium;\n    border: 1px solid lightgray;\n    padding: 3px;\n    width: 80%;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+var List = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].select(_templateObject());
+
+var Dropdown = function Dropdown(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(List, {
+    onChange: props.onChange
+  }, props.options.map(function (option, i) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown_option__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      key: i,
+      value: option.value,
+      text: option.text
+    });
+  }));
+};
+
+Dropdown.propTypes = {
+  options: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Dropdown);
+
+/***/ }),
+
+/***/ "./src/packages/forms/dropdown_option.jsx":
+/*!************************************************!*\
+  !*** ./src/packages/forms/dropdown_option.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    font-size: medium;\n    border: 1px solid lightgray;\n    padding: 3px;\n    width: 80%;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var Opt = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].option(_templateObject());
+
+var DropdownOption = function DropdownOption(_ref) {
+  var value = _ref.value,
+      text = _ref.text;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Opt, {
+    value: value
+  }, text);
+};
+
+DropdownOption.propTypes = {
+  value: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (DropdownOption);
+
+/***/ }),
+
 /***/ "./src/packages/forms/field.jsx":
 /*!**************************************!*\
   !*** ./src/packages/forms/field.jsx ***!
@@ -49047,6 +49153,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./input */ "./src/packages/forms/input.jsx");
 /* harmony import */ var _textarea__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./textarea */ "./src/packages/forms/textarea.jsx");
+/* harmony import */ var _dropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dropdown */ "./src/packages/forms/dropdown.jsx");
+
 
 
 
@@ -49073,6 +49181,14 @@ var Field = function Field(_ref) {
           onChange: onChange,
           placeholder: field.placeholder,
           type: field.type
+        });
+      }
+
+    case 'dropdown':
+      {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          options: field.options,
+          onChange: onChange
         });
       }
   }
