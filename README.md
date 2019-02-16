@@ -19,10 +19,14 @@ Make a branch and open up a PR, Mashu must approve all PRs. <br>
 ##### Up and coming to the repo:
 the use of DefaultProps to set requiredProps. <br>
 the use of knobs and add-ons to test UI in storybook. <br>
-tests for every component written, as long as it has any UI.
+tests for all components.
+add Angular and Vue components.
+separate components based on framework used.
 ***
 THE BELOW IS THE README THAT CAME WITH CREATE REACT APP <br>
 NONE OF IT APPLIES TO YOU :) 
+***
+***
 ***
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
