@@ -2,7 +2,7 @@
     display: flex; 
     flex-direction: column;
     height: 100vh;
-    background-color: #F7DFCC;
+    background-color: #EAFCFE;
 }
 
 .main .nav-bar {
@@ -44,10 +44,8 @@
 }
 
 .components {
-    background-color: #EDE8E5;
     height: 80%;
     width: 80%;
-    border: 1px solid lightgray;
     align-self: center;
     margin: 0 auto;
     padding: 30px;
