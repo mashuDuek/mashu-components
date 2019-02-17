@@ -6,5 +6,6 @@ export default () => (
         <Link to="/form">Form</Link>
         <Link to="/review">Review</Link>
         <Link to="/review-form">Review Form</Link>
+        <Link to="/star-rating">Star Rating</Link>
     </div>
 )

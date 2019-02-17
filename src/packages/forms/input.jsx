@@ -15,14 +15,14 @@ const Input = (props) => (
         required={props.required}
         type={props.type}
         placeholder={props.placeholder}
-        onChange={props.onChange}
-    ></Ipt>
+        onChange={props.onChange}>
+    </Ipt>
 );
 
 Input.propTypes = {
     required: PropTypes.bool, 
     type: PropTypes.string,
-    placehodler: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
     onChange: PropTypes.func
 };
 

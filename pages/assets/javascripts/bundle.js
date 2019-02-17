@@ -31347,8 +31347,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_stories_forms_regular_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../src/stories/forms/regular_form */ "./src/stories/forms/regular_form.jsx");
 /* harmony import */ var _src_stories_reviews_review_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src/stories/reviews/review_item */ "./src/stories/reviews/review_item.jsx");
 /* harmony import */ var _src_stories_reviews_review_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/stories/reviews/review_form */ "./src/stories/reviews/review_form.jsx");
-/* harmony import */ var _routing_bar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routing/bar */ "./pages/components/routing/bar.jsx");
-/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./navbar */ "./pages/components/navbar.jsx");
+/* harmony import */ var _src_stories_reviews_star_rating__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/stories/reviews/star_rating */ "./src/stories/reviews/star_rating.jsx");
+/* harmony import */ var _routing_bar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./routing/bar */ "./pages/components/routing/bar.jsx");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./navbar */ "./pages/components/navbar.jsx");
+
 
 
 
@@ -31359,9 +31361,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar__WEBPACK_IMPORTED_MODULE_7__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "routing-and-comps"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routing_bar__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routing_bar__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "components"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _src_stories_forms_regular_form__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -31372,6 +31374,11 @@ __webpack_require__.r(__webpack_exports__);
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _src_stories_reviews_review_form__WEBPACK_IMPORTED_MODULE_4__["default"],
     path: "/review-form"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    component: _src_stories_reviews_star_rating__WEBPACK_IMPORTED_MODULE_5__["default"],
+    path: "/star-rating"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "file-code"
   })))));
 });
 
@@ -31400,7 +31407,9 @@ __webpack_require__.r(__webpack_exports__);
     to: "/review"
   }, "Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/review-form"
-  }, "Review Form"));
+  }, "Review Form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/star-rating"
+  }, "Star Rating"));
 });
 
 /***/ }),
@@ -31552,7 +31561,7 @@ var Input = function Input(props) {
 Input.propTypes = {
   required: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
   type: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  placehodler: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
+  placeholder: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
   onChange: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func
 };
 Input.defaultProps = {
@@ -32128,16 +32137,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var fields = [{
-  tag: 'textarea',
+  tag: 'input',
   type: 'text',
   label: 'name',
   placeholder: 'name',
   required: true
 }, {
   tag: 'input',
-  type: 'age',
+  type: 'number',
   label: 'age',
   placeholder: 'age',
+  required: false
+}, {
+  tag: 'textarea',
+  type: 'text',
+  label: 'description',
+  placeholder: 'person description',
   required: false
 }, {
   tag: 'input',
@@ -32216,6 +32231,31 @@ __webpack_require__.r(__webpack_exports__);
     body: "something very clever and the something not so clever. and then mayb i'd rethink the whole thing, like why am i even writing this long ass review if i didnt even care about thin place or what it does... whatver im done ",
     rating: 3,
     username: "Mark"
+  });
+});
+
+/***/ }),
+
+/***/ "./src/stories/reviews/star_rating.jsx":
+/*!*********************************************!*\
+  !*** ./src/stories/reviews/star_rating.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _packages_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../packages/reviews/star_rating */ "./src/packages/reviews/star_rating.jsx");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_packages_reviews_star_rating__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    clickHandler: function clickHandler(data) {
+      return console.log(data);
+    },
+    rating: "3"
   });
 });
 

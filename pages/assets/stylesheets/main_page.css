@@ -28,14 +28,14 @@
     width: 10%;
     display: flex; 
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    padding: 10px;
 }
 
 .routing-bar a {
     height: 40px;
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -50,5 +50,11 @@
     margin: 0 auto;
     padding: 30px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.components form {
+    width: inherit;
 }
