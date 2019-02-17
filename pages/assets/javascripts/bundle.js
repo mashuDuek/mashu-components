@@ -31310,6 +31310,28 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./pages/components/navbar.jsx":
+/*!*************************************!*\
+  !*** ./pages/components/navbar.jsx ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "nav-bar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./pages/assets/images/logo28.jpeg"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Mashu Components"));
+});
+
+/***/ }),
+
 /***/ "./pages/components/organizer.jsx":
 /*!****************************************!*\
   !*** ./pages/components/organizer.jsx ***!
@@ -31324,20 +31346,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 /* harmony import */ var _src_stories_forms_regular_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../src/stories/forms/regular_form */ "./src/stories/forms/regular_form.jsx");
 /* harmony import */ var _routing_bar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routing/bar */ "./pages/components/routing/bar.jsx");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./navbar */ "./pages/components/navbar.jsx");
 
  // import Form from './forms/form';
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "routing-and-comps"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routing_bar__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "components"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _src_stories_forms_regular_form__WEBPACK_IMPORTED_MODULE_2__["default"],
     path: "/form"
-  }))));
+  })))));
 });
 
 /***/ }),
