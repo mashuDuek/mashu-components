@@ -48519,6 +48519,13 @@ function (_React$Component) {
       };
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "successfulAdd", function () {
+      if (_this.props.success) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "success"
+      }, "Success!");
+      return null;
+    });
+
     return _this;
   }
 
@@ -48533,30 +48540,33 @@ function (_React$Component) {
         text: "html tag:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onChange: this.handleChange('tag'),
-        placeholder: "supported: 'input', 'textarea'"
+        placeholder: "supported: 'input', 'textarea'",
+        required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: "type:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onChange: this.handleChange('type'),
-        placeholder: "supported: 'date', 'number', 'text'"
+        placeholder: "supported: 'date', 'number', 'text'",
+        required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: "label:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onChange: this.handleChange('label'),
-        placeholder: "eg. Name:"
+        placeholder: "eg. Name:",
+        required: true
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: "placeholder:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
         onChange: this.handleChange('placeholder'),
-        placeholder: "eg. Please type your name here"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        onClick: this.props.addField(this.state),
+        placeholder: "eg. Please type your name here",
+        required: true
+      })), this.successfulAdd(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         text: "Add"
       }));
     }
@@ -48583,8 +48593,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _field_creator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./field_creator */ "./pages/components/component_setup/forms/field_creator.jsx");
-/* harmony import */ var _src_packages_forms_regular_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../src/packages/forms/regular_form */ "./src/packages/forms/regular_form.jsx");
-/* harmony import */ var _src_packages_forms_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../src/packages/forms/button */ "./src/packages/forms/button.jsx");
+/* harmony import */ var _src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../src/packages/forms/button */ "./src/packages/forms/button.jsx");
+/* harmony import */ var _src_packages_forms_input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../src/packages/forms/input */ "./src/packages/forms/input.jsx");
+/* harmony import */ var _src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../src/packages/forms/label */ "./src/packages/forms/label.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48611,6 +48622,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var FormCreator =
 /*#__PURE__*/
 function (_React$Component) {
@@ -48630,11 +48642,11 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(FormCreator)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      fieldCount: 1,
       props: {
         fields: [],
         buttonText: ""
-      },
-      fieldCount: 1
+      }
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addField", function (field) {
@@ -48644,7 +48656,8 @@ function (_React$Component) {
 
         _this.setState({
           fieldCount: _this.state.fieldCount,
-          props: newState.props
+          props: newState.props,
+          success: true
         });
       };
     });
@@ -48655,16 +48668,38 @@ function (_React$Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleButtonText", function (e) {
+      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
+      newState.props.buttonText = e.target.value;
+
+      _this.setState({
+        props: newState.props,
+        fieldCount: _this.state.fieldCount
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderFieldForm", function () {
       var fields = [];
 
       for (var i = 0; i < _this.state.fieldCount; i++) {
         fields.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_field_creator__WEBPACK_IMPORTED_MODULE_2__["default"], {
           key: i,
-          addField: _this.addField.bind(_assertThisInitialized(_assertThisInitialized(_this)))
+          addField: _this.addField.bind(_assertThisInitialized(_assertThisInitialized(_this))),
+          success: _this.state.success
         }));
       }
 
+      ;
+      var button = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "label-and-input",
+        key: "x"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        text: "submit button text:"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        onChange: _this.handleButtonText,
+        placeholder: "text for form submit button"
+      }));
+      fields.push(button);
       return fields;
     });
 
@@ -48676,10 +48711,10 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-creator"
-      }, "Create-a-Form Form", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, "Create-a-Form Form", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onClick: this.incrementFieldCount,
         text: "Add Field"
-      }), this.renderFieldForm(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }), this.renderFieldForm(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onClick: this.props.createForm(this.state.props),
         text: "Create Form"
       }));
@@ -48689,45 +48724,86 @@ function (_React$Component) {
   return FormCreator;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
+/* harmony default export */ __webpack_exports__["default"] = (FormCreator);
+
+/***/ }),
+
+/***/ "./pages/components/component_setup/forms/new_form.jsx":
+/*!*************************************************************!*\
+  !*** ./pages/components/component_setup/forms/new_form.jsx ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _form_creator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form_creator */ "./pages/components/component_setup/forms/form_creator.jsx");
+/* harmony import */ var _src_packages_forms_regular_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../src/packages/forms/regular_form */ "./src/packages/forms/regular_form.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
 var NewForm =
 /*#__PURE__*/
-function (_React$Component2) {
-  _inherits(NewForm, _React$Component2);
+function (_React$Component) {
+  _inherits(NewForm, _React$Component);
 
   function NewForm() {
-    var _getPrototypeOf3;
+    var _getPrototypeOf2;
 
-    var _this2;
+    var _this;
 
     _classCallCheck(this, NewForm);
 
-    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      args[_key2] = arguments[_key2];
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
 
-    _this2 = _possibleConstructorReturn(this, (_getPrototypeOf3 = _getPrototypeOf(NewForm)).call.apply(_getPrototypeOf3, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(NewForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this2)), "state", {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       form: null
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this2)), "createForm", function (form) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "createForm", function (form) {
       return function () {
-        _this2.setState({
+        _this.setState({
           form: form
         });
       };
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this2)), "renderForm", function () {
-      if (!_this2.state.form) return null;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_regular_form__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        fields: _this2.state.form.fields,
-        buttonText: _this2.state.form.buttonText
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderForm", function () {
+      if (!_this.state.form) return null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_regular_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        fields: _this.state.form.fields,
+        buttonText: _this.state.form.buttonText
       });
     });
 
-    return _this2;
+    return _this;
   }
 
   _createClass(NewForm, [{
@@ -48735,7 +48811,7 @@ function (_React$Component2) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-creator-and-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FormCreator, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_form_creator__WEBPACK_IMPORTED_MODULE_1__["default"], {
         createForm: this.createForm.bind(this)
       }), this.renderForm());
     }
@@ -48782,7 +48858,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _component_setup_forms_form_creator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component_setup/forms/form_creator */ "./pages/components/component_setup/forms/form_creator.jsx");
+/* harmony import */ var _component_setup_forms_new_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component_setup/forms/new_form */ "./pages/components/component_setup/forms/new_form.jsx");
 /* harmony import */ var _src_stories_forms_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src/stories/forms/input */ "./src/stories/forms/input.jsx");
 /* harmony import */ var _src_stories_forms_textarea__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/stories/forms/textarea */ "./src/stories/forms/textarea.jsx");
 /* harmony import */ var _src_stories_forms_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/stories/forms/button */ "./src/stories/forms/button.jsx");
@@ -48792,7 +48868,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routing_bar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./routing_bar */ "./pages/components/routing_bar.jsx");
 /* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./navbar */ "./pages/components/navbar.jsx");
 
- // import Form from '../../src/stories/forms/regular_form';
 
 
 
@@ -48810,8 +48885,8 @@ __webpack_require__.r(__webpack_exports__);
     className: "routing-and-comps"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routing_bar__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "components"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _component_setup_forms_form_creator__WEBPACK_IMPORTED_MODULE_2__["default"],
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    component: _component_setup_forms_new_form__WEBPACK_IMPORTED_MODULE_2__["default"],
     path: "/form"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _src_stories_forms_input__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -48831,7 +48906,7 @@ __webpack_require__.r(__webpack_exports__);
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _src_stories_reviews_star_rating__WEBPACK_IMPORTED_MODULE_8__["default"],
     path: "/star-rating"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null)))));
+  })))));
 });
 
 /***/ }),

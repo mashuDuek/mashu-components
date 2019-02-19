@@ -1,12 +1,13 @@
 .form-creator-and-form {
     height: inherit;
-    width: inherit;
+    width: 90%;
 }
 
 .form-creator-and-form .form-creator {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .form-creator-and-form .form-creator form {

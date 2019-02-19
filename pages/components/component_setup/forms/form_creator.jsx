@@ -2,16 +2,17 @@ import React from 'react';
 import { merge } from 'lodash';
 
 import FieldCreator from './field_creator';
-import FormComp from '../../../../src/packages/forms/regular_form';
 import Button from '../../../../src/packages/forms/button';
+import Input from '../../../../src/packages/forms/input';
+import Label from '../../../../src/packages/forms/label';
 
 class FormCreator extends React.Component {
     state = {
+        fieldCount: 1,
         props: { 
             fields: [],
             buttonText: ""
-        },
-        fieldCount: 1
+        }
     };
 
     addField = (field) => {
@@ -20,24 +21,46 @@ class FormCreator extends React.Component {
             newState.props.fields.push(field)
             this.setState({ 
                 fieldCount: this.state.fieldCount, 
-                props: newState.props 
+                props: newState.props,
+                success: true
             });
-        }
-    }
+        };
+    };
 
     incrementFieldCount = () => {
         this.setState({ fieldCount: this.state.fieldCount + 1 });
-    }
+    };
+
+    handleButtonText = (e) => {
+        const newState = merge({}, this.state);
+        newState.props.buttonText = e.target.value;
+        this.setState({ props: newState.props, fieldCount: this.state.fieldCount });
+    };
 
     renderFieldForm = () => {
-        const fields = []
+        const fields = [];
         for (let i = 0; i < this.state.fieldCount; i++) {
             fields.push(
-                <FieldCreator key={i} addField={this.addField.bind(this)}></FieldCreator>
+                <FieldCreator key={i} 
+                    addField={this.addField.bind(this)} 
+                    success={this.state.success}>
+                </FieldCreator>
             );
-        }
+        };
+
+        const button = (
+            <div className="label-and-input" key="x">
+                <Label text="submit button text:"></Label>
+                <Input 
+                    onChange={this.handleButtonText} 
+                    placeholder="text for form submit button">
+                </Input>
+            </div>
+        );
+
+        fields.push(button)
         return fields;
-    }
+    };
 
     render() {
         return (
@@ -50,35 +73,8 @@ class FormCreator extends React.Component {
                     text="Create Form">
                 </Button>
             </div>
-        )
-    }
-}
-
-class NewForm extends React.Component {
-    state = { form: null };
-
-    createForm = (form) => () => {
-        this.setState({ form });
-    };
-
-    renderForm = () => {
-        if (!this.state.form) return null;
-        return (
-            <FormComp 
-                fields={this.state.form.fields} 
-                buttonText={this.state.form.buttonText}>
-            </FormComp>
         );
-    };
-    
-    render() {
-        return (
-            <div className="form-creator-and-form">
-                <FormCreator createForm={this.createForm.bind(this)}></FormCreator>
-                {this.renderForm()}
-            </div>
-        )
     }
 }
 
-export default NewForm;
+export default FormCreator;

@@ -56,7 +56,3 @@
     align-items: center;
     overflow: scroll;
 }
-
-.components form {
-    width: inherit;
-}
