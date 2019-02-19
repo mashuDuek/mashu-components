@@ -9,8 +9,9 @@
     height: 10vh;
     background-color: #ACAAAF;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 15px;
 }
 
 .main .nav-bar img {

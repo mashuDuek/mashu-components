@@ -1,12 +1,17 @@
 import React from 'react';
 import { Route, HashRouter } from 'react-router-dom';
 
-import Form from '../../src/stories/forms/regular_form';
+// import Form from '../../src/stories/forms/regular_form';
+import FormCreator from './component_setup/forms/form_creator';
+import Input from '../../src/stories/forms/input';
+import TextArea from '../../src/stories/forms/textarea';
+import Button from '../../src/stories/forms/button';
+
 import Review from '../../src/stories/reviews/review_item';
 import ReviewForm from '../../src/stories/reviews/review_form';
 import StarRating from '../../src/stories/reviews/star_rating';
 
-import RoutingBar from './routing/bar';
+import RoutingBar from './routing_bar';
 import NavBar from './navbar';
 
 export default () => (
@@ -17,12 +22,14 @@ export default () => (
                 <RoutingBar></RoutingBar>
                 <div className="components">
                     <h1>Component</h1>
-                    <Route component={Form} path="/form"></Route>
+                    <Route component={FormCreator} path="/form"></Route>
+                    <Route component={Input} path="/Input"></Route>
+                    <Route component={TextArea} path="/textarea"></Route>
+                    <Route component={Button} path="/button"></Route>
                     <Route component={Review} path="/review"></Route>
                     <Route component={ReviewForm} path="/review-form"></Route>
                     <Route component={StarRating} path="/star-rating"></Route>
-                    <div id="file-code">
-                    </div>
+                    <p></p>
                 </div>
             </div>
         </div>

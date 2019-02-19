@@ -5,4 +5,4 @@ export default () => (
         <img src="./pages/assets/images/logo28.jpeg"/>
         <h1>Mashu Components</h1>
     </div>
-)
+);
