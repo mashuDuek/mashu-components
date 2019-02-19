@@ -43,8 +43,7 @@ class NewForm extends React.Component {
                 <Label text={field.label}></Label>
                 <Field 
                     field={field}
-                    onChange={this.handleChange(field.label).bind(this)}
-                >
+                    onChange={this.handleChange(field.label).bind(this)}>
                 </Field>
             </LabelAndField>
         ))

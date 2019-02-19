@@ -3,6 +3,7 @@ import { merge } from 'lodash';
 
 import FieldCreator from './field_creator';
 import FormComp from '../../../../src/packages/forms/regular_form';
+import Button from '../../../../src/packages/forms/button';
 
 class FormCreator extends React.Component {
     state = {
@@ -40,14 +41,14 @@ class FormCreator extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="form-creator">
                 Create-a-Form Form
-                <button onClick={this.incrementFieldCount}>Add Field</button>
+                <Button onClick={this.incrementFieldCount} text="Add Field"></Button>
                 {this.renderFieldForm()}
-                <button 
-                    onClick={this.props.createForm(this.state.props)}>
-                    Create Form
-                </button>
+                <Button 
+                    onClick={this.props.createForm(this.state.props)}
+                    text="Create Form">
+                </Button>
             </div>
         )
     }
@@ -72,7 +73,7 @@ class NewForm extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="form-creator-and-form">
                 <FormCreator createForm={this.createForm.bind(this)}></FormCreator>
                 {this.renderForm()}
             </div>

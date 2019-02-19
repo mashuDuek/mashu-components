@@ -1,0 +1,25 @@
+.form-creator-and-form {
+    height: inherit;
+    width: inherit;
+}
+
+.form-creator-and-form .form-creator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-creator-and-form .form-creator form {
+    height: inherit;
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    align-items: space-around;
+}
+
+.form-creator-and-form .form-creator form .label-and-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}

@@ -1,4 +1,7 @@
 import React from 'react';
+import Input from '../../../../src/packages/forms/input';
+import Button from '../../../../src/packages/forms/button';
+import Label from '../../../../src/packages/forms/label';
 
 class FieldCreator extends React.Component {
     state = {};
@@ -9,23 +12,28 @@ class FieldCreator extends React.Component {
 
     render () {
         return (
-            <form onSubmit={this.props.addField}>
-                <label>html tag:</label>
-                <input type="text" onChange={this.handleChange('tag')} placeholder="text">
-                </input><br></br>
-                <label>type:</label>
-                <input type="text" onChange={this.handleChange('type')} placeholder="something">
-                </input><br></br>
-                <label>label:</label>
-                <input type="text" onChange={this.handleChange('label')} placeholder="Name">
-                </input><br></br>
-                <label>placeholder:</label>
-                <input type="text" onChange={this.handleChange('placeholder')} placeholder="placeholder">
-                </input><br></br>
-                <label>required:</label>
-                <input type="checkbox" onChange={this.handleChange('required')}>
-                </input>
-                <button onClick={this.props.addField}>Add</button>
+            <form onSubmit={this.props.addField(this.state)}>
+                <div className="label-and-input">
+                    <Label text="html tag:"></Label>
+                    <Input onChange={this.handleChange('tag')} placeholder="supported: 'input', 'textarea'">
+                    </Input>
+                </div>
+                <div className="label-and-input">
+                    <Label text="type:"></Label>
+                    <Input onChange={this.handleChange('type')} placeholder="supported: 'date', 'number', 'text'">
+                    </Input>
+                </div>
+                <div className="label-and-input">
+                    <Label text="label:"></Label>
+                    <Input onChange={this.handleChange('label')} placeholder="eg. Name:">
+                    </Input>
+                </div>
+                <div className="label-and-input">
+                    <Label text="placeholder:"></Label>
+                    <Input onChange={this.handleChange('placeholder')} placeholder="eg. Please type your name here">
+                    </Input>
+                </div>
+                <Button onClick={this.props.addField(this.state)} text="Add"></Button>
             </form>
         )
     }
