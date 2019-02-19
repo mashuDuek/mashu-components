@@ -12,16 +12,16 @@ class FieldCreator extends React.Component {
             <form onSubmit={this.props.addField}>
                 <label>html tag:</label>
                 <input type="text" onChange={this.handleChange('tag')} placeholder="text">
-                </input>
+                </input><br></br>
                 <label>type:</label>
                 <input type="text" onChange={this.handleChange('type')} placeholder="something">
-                </input>
+                </input><br></br>
                 <label>label:</label>
                 <input type="text" onChange={this.handleChange('label')} placeholder="Name">
-                </input>
+                </input><br></br>
                 <label>placeholder:</label>
                 <input type="text" onChange={this.handleChange('placeholder')} placeholder="placeholder">
-                </input>
+                </input><br></br>
                 <label>required:</label>
                 <input type="checkbox" onChange={this.handleChange('required')}>
                 </input>

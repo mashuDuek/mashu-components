@@ -48525,19 +48525,19 @@ function (_React$Component) {
         type: "text",
         onChange: this.handleChange('tag'),
         placeholder: "text"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "type:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "type:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.handleChange('type'),
         placeholder: "something"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "label:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "label:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.handleChange('label'),
         placeholder: "Name"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "placeholder:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "placeholder:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.handleChange('placeholder'),
         placeholder: "placeholder"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "required:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "required:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "checkbox",
         onChange: this.handleChange('required')
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
