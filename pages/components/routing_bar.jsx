@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default () => (
     <div className="routing-bar">
+        <Link to="/">Home</Link>
         <Link to="/form">Form</Link>
         <Link to="/input">Input Field</Link>
         <Link to="/textarea">TextArea Field</Link>

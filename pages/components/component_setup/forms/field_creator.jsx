@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../../../../src/packages/forms/input';
+import Dropdown from '../../../../src/packages/forms/dropdown';
 import Button from '../../../../src/packages/forms/button';
 import Label from '../../../../src/packages/forms/label';
 
@@ -18,13 +19,15 @@ class FieldCreator extends React.Component {
     render () {
         return (
             <form onSubmit={this.props.addField(this.state)}>
-                <div className="label-and-input">
+                <div className="label-and-input" key="y">
                     <Label text="html tag:"></Label>
-                    <Input 
-                        onChange={this.handleChange('tag')} 
-                        placeholder="supported: 'input', 'textarea'" 
-                        required={true}>
-                    </Input>
+                    <Dropdown onChange={this.handleChange('tag')}
+                        options={[
+                            { value: 'input', text: 'input'       },
+                            { value: 'textarea', text: 'textarea' },
+                            { value: 'dropdown', text: 'dropdown' },
+                        ]}>
+                    </Dropdown>
                 </div>
                 <div className="label-and-input">
                     <Label text="type:"></Label>

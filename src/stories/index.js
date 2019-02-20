@@ -7,6 +7,7 @@ import Label from './forms/label';
 import Input from './forms/input';
 import TextArea from './forms/textarea';
 import Form from './forms/regular_form';
+import Dropdown from './forms/dropdown';
 
 import ReviewForm from './reviews/review_form';
 import StarRating from './reviews/star_rating';
@@ -19,6 +20,7 @@ storiesOf('Forms', module)
   .add('Label', Label)
   .add('Input', Input)
   .add('TextArea', TextArea)
+  .add('Dropdown', Dropdown)
 
 // reviews module
 storiesOf('Reviews', module)

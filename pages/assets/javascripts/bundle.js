@@ -48535,14 +48535,19 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.props.addField(this.state)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "label-and-input"
+        className: "label-and-input",
+        key: "y"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: "html tag:"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        onChange: this.handleChange('tag'),
-        placeholder: "supported: 'input', 'textarea'",
-        required: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "pet-select",
+        onChange: this.handleChange('tag')
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "input",
+        defaultValue: true
+      }, "input"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "textarea"
+      }, "textarea"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: "type:"
@@ -48666,6 +48671,11 @@ function (_React$Component) {
       _this.setState({
         fieldCount: _this.state.fieldCount + 1
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDropdownChoice", function (e) {
+      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
+      newState.props.field;
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleButtonText", function (e) {
@@ -48824,6 +48834,26 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./pages/components/landing_page.jsx":
+/*!*******************************************!*\
+  !*** ./pages/components/landing_page.jsx ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "about-the-project"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Mashu's Components"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "About the Project"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "This project is to display components in isolation or as a subcomponent."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It draws inspiration from the amazing Storybook."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Tech"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "This project uses React and styled-components to create the presentations you see"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It uses Storybook to test (create) these components"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "We use Webpack and Babel to compile and transpile our code"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Future"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Adding other frontend frameworks, like Vue.js and Angular.js"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Become a Contributor"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "If you wish to become a contributor email the app owner"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+});
+
+/***/ }),
+
 /***/ "./pages/components/navbar.jsx":
 /*!*************************************!*\
   !*** ./pages/components/navbar.jsx ***!
@@ -48858,15 +48888,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-/* harmony import */ var _component_setup_forms_new_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component_setup/forms/new_form */ "./pages/components/component_setup/forms/new_form.jsx");
-/* harmony import */ var _src_stories_forms_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../src/stories/forms/input */ "./src/stories/forms/input.jsx");
-/* harmony import */ var _src_stories_forms_textarea__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/stories/forms/textarea */ "./src/stories/forms/textarea.jsx");
-/* harmony import */ var _src_stories_forms_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/stories/forms/button */ "./src/stories/forms/button.jsx");
-/* harmony import */ var _src_stories_reviews_review_item__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/stories/reviews/review_item */ "./src/stories/reviews/review_item.jsx");
-/* harmony import */ var _src_stories_reviews_review_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../src/stories/reviews/review_form */ "./src/stories/reviews/review_form.jsx");
-/* harmony import */ var _src_stories_reviews_star_rating__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../src/stories/reviews/star_rating */ "./src/stories/reviews/star_rating.jsx");
-/* harmony import */ var _routing_bar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./routing_bar */ "./pages/components/routing_bar.jsx");
-/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./navbar */ "./pages/components/navbar.jsx");
+/* harmony import */ var _landing_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./landing_page */ "./pages/components/landing_page.jsx");
+/* harmony import */ var _component_setup_forms_new_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component_setup/forms/new_form */ "./pages/components/component_setup/forms/new_form.jsx");
+/* harmony import */ var _src_stories_forms_input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../src/stories/forms/input */ "./src/stories/forms/input.jsx");
+/* harmony import */ var _src_stories_forms_textarea__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/stories/forms/textarea */ "./src/stories/forms/textarea.jsx");
+/* harmony import */ var _src_stories_forms_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/stories/forms/button */ "./src/stories/forms/button.jsx");
+/* harmony import */ var _src_stories_reviews_review_item__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../src/stories/reviews/review_item */ "./src/stories/reviews/review_item.jsx");
+/* harmony import */ var _src_stories_reviews_review_form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../src/stories/reviews/review_form */ "./src/stories/reviews/review_form.jsx");
+/* harmony import */ var _src_stories_reviews_star_rating__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../src/stories/reviews/star_rating */ "./src/stories/reviews/star_rating.jsx");
+/* harmony import */ var _routing_bar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./routing_bar */ "./pages/components/routing_bar.jsx");
+/* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./navbar */ "./pages/components/navbar.jsx");
+
 
 
 
@@ -48881,30 +48913,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["HashRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar__WEBPACK_IMPORTED_MODULE_10__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_navbar__WEBPACK_IMPORTED_MODULE_11__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "routing-and-comps"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routing_bar__WEBPACK_IMPORTED_MODULE_9__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routing_bar__WEBPACK_IMPORTED_MODULE_10__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "components"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _component_setup_forms_new_form__WEBPACK_IMPORTED_MODULE_2__["default"],
+    component: _landing_page__WEBPACK_IMPORTED_MODULE_2__["default"],
+    exact: true,
+    path: "/"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    component: _component_setup_forms_new_form__WEBPACK_IMPORTED_MODULE_3__["default"],
     path: "/form"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _src_stories_forms_input__WEBPACK_IMPORTED_MODULE_3__["default"],
+    component: _src_stories_forms_input__WEBPACK_IMPORTED_MODULE_4__["default"],
     path: "/Input"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _src_stories_forms_textarea__WEBPACK_IMPORTED_MODULE_4__["default"],
+    component: _src_stories_forms_textarea__WEBPACK_IMPORTED_MODULE_5__["default"],
     path: "/textarea"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _src_stories_forms_button__WEBPACK_IMPORTED_MODULE_5__["default"],
+    component: _src_stories_forms_button__WEBPACK_IMPORTED_MODULE_6__["default"],
     path: "/button"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _src_stories_reviews_review_item__WEBPACK_IMPORTED_MODULE_6__["default"],
+    component: _src_stories_reviews_review_item__WEBPACK_IMPORTED_MODULE_7__["default"],
     path: "/review"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _src_stories_reviews_review_form__WEBPACK_IMPORTED_MODULE_7__["default"],
+    component: _src_stories_reviews_review_form__WEBPACK_IMPORTED_MODULE_8__["default"],
     path: "/review-form"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _src_stories_reviews_star_rating__WEBPACK_IMPORTED_MODULE_8__["default"],
+    component: _src_stories_reviews_star_rating__WEBPACK_IMPORTED_MODULE_9__["default"],
     path: "/star-rating"
   })))));
 });
@@ -48929,6 +48965,8 @@ __webpack_require__.r(__webpack_exports__);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "routing-bar"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/"
+  }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/form"
   }, "Form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/input"

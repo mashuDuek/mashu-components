@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, HashRouter } from 'react-router-dom';
 
+import LandingPage from './landing_page';
+
 import FormCreator from './component_setup/forms/new_form';
 import Input from '../../src/stories/forms/input';
 import TextArea from '../../src/stories/forms/textarea';
@@ -20,6 +22,7 @@ export default () => (
             <div className="routing-and-comps">
                 <RoutingBar></RoutingBar>
                 <div className="components">
+                    <Route component={LandingPage} exact path="/"></Route>
                     <Route component={FormCreator} path="/form"></Route>
                     <Route component={Input} path="/Input"></Route>
                     <Route component={TextArea} path="/textarea"></Route>

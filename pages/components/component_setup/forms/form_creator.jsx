@@ -31,6 +31,11 @@ class FormCreator extends React.Component {
         this.setState({ fieldCount: this.state.fieldCount + 1 });
     };
 
+    handleDropdownChoice = (e) => {
+        const newState = merge({}, this.state);
+        newState.props.field
+    }
+
     handleButtonText = (e) => {
         const newState = merge({}, this.state);
         newState.props.buttonText = e.target.value;
@@ -58,7 +63,7 @@ class FormCreator extends React.Component {
             </div>
         );
 
-        fields.push(button)
+        fields.push(button);
         return fields;
     };
 

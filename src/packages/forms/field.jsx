@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Input from './input';
 import TextArea from './textarea';
+import Dropdown from './dropdown';
 
 const Field = ({ field, onChange }) => {
     switch (field.tag) {
@@ -24,6 +25,15 @@ const Field = ({ field, onChange }) => {
                     placeholder={field.placeholder}
                     type={field.type}>
                 </TextArea>
+            )
+        }
+
+        case 'dropdown': {
+            return (
+                <Dropdown
+                    options={field.options}
+                    onChange={onChange}>
+                </Dropdown>
             )
         }
     }
