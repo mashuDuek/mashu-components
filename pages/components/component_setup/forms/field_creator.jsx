@@ -6,6 +6,8 @@ import Dropdown from '../../../../src/packages/forms/dropdown';
 import Button from '../../../../src/packages/forms/button';
 import Label from '../../../../src/packages/forms/label';
 
+import DropdownOptions from './dropdown_option';
+
 class FieldCreator extends React.Component {
     state = {
         field: {},
@@ -17,12 +19,12 @@ class FieldCreator extends React.Component {
 
     handleChange = (field) => (e) => {
         this.setState({ [field]: e.target.value });
-    }
+    };
 
     successfulAdd = () => {
         if (this.props.success) return <p className="success">Success!</p>;
         return null;
-    }
+    };
 
     handleTagSelect = (e) => {
         const newState = merge({}, this.state);
@@ -32,7 +34,7 @@ class FieldCreator extends React.Component {
             this.setState({ 
                 field: newState.field, 
                 chosen: true, 
-                selectedDropdown: true
+                selectedDropdown: true,
             });
         } else if (e.target.value === 'textarea') {
             this.setState({
@@ -46,28 +48,25 @@ class FieldCreator extends React.Component {
                 chosen: true,
                 selectedInput: true
             });
-        }
-    }
+        };
+    };
 
-    addDropdownOption = (e) => {
-    // in the `this.addDropdownOption` function need to add another option
-    // also, its sending back the `Success!` message (so, don't finish the field form for this one)
-    // maybe do so with stopPropagation (or preventDefault) --- check em
-        const input = e.target.value;
-        const newOption = { text: input, value: input };
-        const newState = merge({}, this.state);
-        newState.field.tag = 'dropdown';
-        if (!newState.field.options) {
-            newState.field.options = [newOption];
-        } else {
-            newState.field.options.push(newOption);
-        }
-
-        this.setState({ 
-            field: newState.field, 
-            selectedDropdown: !this.state.selectedDropdown 
-        });
-    }
+    addOptions = (option) => {
+        return (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const newState = merge({}, this.state);
+            if (!newState.field.options) {
+                newState.field.options = [option];
+            } else {
+                newState.field.options.push(option);
+            }
+            debugger
+            this.setState({
+                field: newState.field,
+            });
+        };
+    };
 
     renderTextareaField = () => (
         <div className="label-and-input">
@@ -78,7 +77,7 @@ class FieldCreator extends React.Component {
                 required={true}>
             </Input>
         </div>
-    )
+    );
 
     renderInputFields = () => (
         <div>
@@ -99,27 +98,14 @@ class FieldCreator extends React.Component {
                 </Input>
             </div>
         </div>
-    )
+    );
 
     renderDropdownFields = () => (
-        <div>
-            <div className="dropdown-option">
-                <Label text="option text:"></Label>
-                <Input
-                    onChange={this.handleChange('text')}
-                    placeholder="enter text to display"
-                    type="text"
-                    required={true}>
-                </Input>
-            </div>
-            <Button onClick={this.addDropdownOption} text="add option"></Button>
-        </div>
-    )
-    // in the `this.addDropdownOption` function need to add another option
-    // also, its sending back the `Success!` message (so, don't finish the field form for this one)
-    // maybe do so with stopPropagation (or preventDefault) --- check em
+        <DropdownOptions
+            addOptions={this.addOptions.bind(this)}>
+        </DropdownOptions>
+    );
     
-
     render () {
         let fieldsToRender = null;
         if (this.state.chosen) {
@@ -129,8 +115,8 @@ class FieldCreator extends React.Component {
                 fieldsToRender = this.renderTextareaField();
             } else if (this.state.field.tag === 'input') {
                 fieldsToRender = this.renderInputFields();
-            }
-        }
+            };
+        };
 
         return (
             <form onSubmit={this.props.addField(this.state)}>

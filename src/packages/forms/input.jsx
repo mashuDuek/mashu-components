@@ -15,7 +15,9 @@ const Input = (props) => (
         required={props.required}
         type={props.type}
         placeholder={props.placeholder}
-        onChange={props.onChange}>
+        onChange={props.onChange}
+        value={props.value}
+        >
     </Ipt>
 );
 
@@ -23,7 +25,8 @@ Input.propTypes = {
     required: PropTypes.bool, 
     type: PropTypes.string,
     placeholder: PropTypes.string.isRequired,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    value: PropTypes.string
 };
 
 Input.defaultProps = {
