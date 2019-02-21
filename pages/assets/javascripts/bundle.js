@@ -48519,6 +48519,8 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       field: {},
       selectedDropdown: false,
+      selectedInput: false,
+      selectedTextarea: false,
       chosen: false
     });
 
@@ -48537,22 +48539,25 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleTagSelect", function (e) {
       var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
+      newState.field.tag = e.target.value;
 
       if (e.target.value === 'dropdown') {
-        newState.field.tag = 'dropdown';
-
-        _this.setState({
-          field: newState.field,
-          selectedDropdown: true,
-          chosen: true
-        });
-      } else {
-        newState.field.tag = e.target.value;
-
         _this.setState({
           field: newState.field,
           chosen: true,
-          selectedDropdown: false
+          selectedDropdown: true
+        });
+      } else if (e.target.value === 'textarea') {
+        _this.setState({
+          field: newState.field,
+          chosen: true,
+          selectedTextarea: true
+        });
+      } else {
+        _this.setState({
+          field: newState.field,
+          chosen: true,
+          selectedInput: true
         });
       }
     });
@@ -48581,7 +48586,19 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderNonDropdownFields", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderTextareaField", function () {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "label-and-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        text: "placeholder:"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        onChange: _this.handleChange('placeholder'),
+        placeholder: "eg. Please type your name here",
+        required: true
+      }));
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderInputFields", function () {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -48629,10 +48646,12 @@ function (_React$Component) {
       var fieldsToRender = null;
 
       if (this.state.chosen) {
-        if (this.state.field.tag == 'dropdown') {
+        if (this.state.field.tag === 'dropdown') {
           fieldsToRender = this.renderDropdownFields();
-        } else {
-          fieldsToRender = this.renderNonDropdownFields();
+        } else if (this.state.field.tag === 'textarea') {
+          fieldsToRender = this.renderTextareaField();
+        } else if (this.state.field.tag === 'input') {
+          fieldsToRender = this.renderInputFields();
         }
       }
 

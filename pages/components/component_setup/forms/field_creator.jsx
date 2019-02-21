@@ -10,6 +10,8 @@ class FieldCreator extends React.Component {
     state = {
         field: {},
         selectedDropdown: false,
+        selectedInput: false,
+        selectedTextarea: false,
         chosen: false
     };
 
@@ -25,12 +27,25 @@ class FieldCreator extends React.Component {
     handleTagSelect = (e) => {
         const newState = merge({}, this.state);
 
+        newState.field.tag = e.target.value;
         if (e.target.value === 'dropdown') {
-            newState.field.tag = 'dropdown';
-            this.setState({ field: newState.field, selectedDropdown: true, chosen: true });
+            this.setState({ 
+                field: newState.field, 
+                chosen: true, 
+                selectedDropdown: true
+            });
+        } else if (e.target.value === 'textarea') {
+            this.setState({
+                field: newState.field,
+                chosen: true,
+                selectedTextarea: true,
+            });
         } else {
-            newState.field.tag = e.target.value;
-            this.setState({ field: newState.field, chosen: true, selectedDropdown: false });
+            this.setState({
+                field: newState.field,
+                chosen: true,
+                selectedInput: true
+            });
         }
     }
 
@@ -54,7 +69,18 @@ class FieldCreator extends React.Component {
         });
     }
 
-    renderNonDropdownFields = () => (
+    renderTextareaField = () => (
+        <div className="label-and-input">
+            <Label text="placeholder:"></Label>
+            <Input
+                onChange={this.handleChange('placeholder')}
+                placeholder="eg. Please type your name here"
+                required={true}>
+            </Input>
+        </div>
+    )
+
+    renderInputFields = () => (
         <div>
             <div className="label-and-input">
                 <Label text="type:"></Label>
@@ -97,10 +123,12 @@ class FieldCreator extends React.Component {
     render () {
         let fieldsToRender = null;
         if (this.state.chosen) {
-            if (this.state.field.tag == 'dropdown') {
+            if (this.state.field.tag === 'dropdown') {
                 fieldsToRender = this.renderDropdownFields();
-            } else {
-                fieldsToRender = this.renderNonDropdownFields();
+            } else if (this.state.field.tag === 'textarea') {
+                fieldsToRender = this.renderTextareaField();
+            } else if (this.state.field.tag === 'input') {
+                fieldsToRender = this.renderInputFields();
             }
         }
 
