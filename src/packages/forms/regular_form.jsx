@@ -59,9 +59,14 @@ class NewForm extends React.Component {
     }
 }
 
-export default NewForm;
+NewForm.propTypes = {
+    fields: PropTypes.array.isRequired,
+    buttonText: PropTypes.string.isRequired,
+    onSubmit: PropTypes.func
+};
 
-// we want to specify which props this Form takes
-// using PropTypes
-// we also want to use defaultProps to add some 
-// sensible data in case user does not supply un-required props
+NewForm.defaultProps = {
+    onSubmit: (data) => console.log(data)
+};
+
+export default NewForm;

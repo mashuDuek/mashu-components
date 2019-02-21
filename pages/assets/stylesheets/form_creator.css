@@ -24,3 +24,11 @@
     align-items: center;
     margin: 5px 0;
 }
+
+.form-creator-and-form .form-creator .dropdown-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+
+}

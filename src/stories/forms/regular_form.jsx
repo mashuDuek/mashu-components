@@ -11,8 +11,7 @@ const fields = [
 const TestForm = () => (
     <Form
         fields={fields}
-        buttonText="Submit Me"
-        onSubmit={(data) => console.log(data)}>
+        buttonText="Submit Me">
     </Form>
 )
 

@@ -48465,9 +48465,12 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../src/packages/forms/input */ "./src/packages/forms/input.jsx");
-/* harmony import */ var _src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../src/packages/forms/button */ "./src/packages/forms/button.jsx");
-/* harmony import */ var _src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../src/packages/forms/label */ "./src/packages/forms/label.jsx");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _src_packages_forms_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../src/packages/forms/input */ "./src/packages/forms/input.jsx");
+/* harmony import */ var _src_packages_forms_dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../src/packages/forms/dropdown */ "./src/packages/forms/dropdown.jsx");
+/* harmony import */ var _src_packages_forms_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../src/packages/forms/button */ "./src/packages/forms/button.jsx");
+/* harmony import */ var _src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../src/packages/forms/label */ "./src/packages/forms/label.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48493,6 +48496,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+
 var FieldCreator =
 /*#__PURE__*/
 function (_React$Component) {
@@ -48511,7 +48516,11 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(FieldCreator)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      field: {},
+      selectedDropdown: false,
+      chosen: false
+    });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (field) {
       return function (e) {
@@ -48526,52 +48535,138 @@ function (_React$Component) {
       return null;
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleTagSelect", function (e) {
+      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
+
+      if (e.target.value === 'dropdown') {
+        newState.field.tag = 'dropdown';
+
+        _this.setState({
+          field: newState.field,
+          selectedDropdown: true,
+          chosen: true
+        });
+      } else {
+        newState.field.tag = e.target.value;
+
+        _this.setState({
+          field: newState.field,
+          chosen: true,
+          selectedDropdown: false
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addDropdownOption", function (e) {
+      // in the `this.addDropdownOption` function need to add another option
+      // also, its sending back the `Success!` message (so, don't finish the field form for this one)
+      // maybe do so with stopPropagation (or preventDefault) --- check em
+      var input = e.target.value;
+      var newOption = {
+        text: input,
+        value: input
+      };
+      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
+      newState.field.tag = 'dropdown';
+
+      if (!newState.field.options) {
+        newState.field.options = [newOption];
+      } else {
+        newState.field.options.push(newOption);
+      }
+
+      _this.setState({
+        field: newState.field,
+        selectedDropdown: !_this.state.selectedDropdown
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderNonDropdownFields", function () {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "label-and-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        text: "type:"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        onChange: _this.handleChange('type'),
+        placeholder: "supported: 'date', 'number', 'text'",
+        required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "label-and-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        text: "placeholder:"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        onChange: _this.handleChange('placeholder'),
+        placeholder: "eg. Please type your name here",
+        required: true
+      })));
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderDropdownFields", function () {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dropdown-option"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        text: "option text:"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        onChange: _this.handleChange('text'),
+        placeholder: "enter text to display",
+        type: "text",
+        required: true
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        onClick: _this.addDropdownOption,
+        text: "add option"
+      }));
+    });
+
     return _this;
   }
 
   _createClass(FieldCreator, [{
     key: "render",
+    // in the `this.addDropdownOption` function need to add another option
+    // also, its sending back the `Success!` message (so, don't finish the field form for this one)
+    // maybe do so with stopPropagation (or preventDefault) --- check em
     value: function render() {
+      var fieldsToRender = null;
+
+      if (this.state.chosen) {
+        if (this.state.field.tag == 'dropdown') {
+          fieldsToRender = this.renderDropdownFields();
+        } else {
+          fieldsToRender = this.renderNonDropdownFields();
+        }
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.props.addField(this.state)
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input",
         key: "y"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
         text: "html tag:"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "pet-select",
-        onChange: this.handleChange('tag')
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "input",
-        defaultValue: true
-      }, "input"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "textarea"
-      }, "textarea"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "label-and-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        text: "type:"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        onChange: this.handleChange('type'),
-        placeholder: "supported: 'date', 'number', 'text'",
-        required: true
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_dropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onChange: this.handleTagSelect,
+        options: [{
+          value: 'select one',
+          text: 'select one'
+        }, {
+          value: 'input',
+          text: 'input'
+        }, {
+          value: 'textarea',
+          text: 'textarea'
+        }, {
+          value: 'dropdown',
+          text: 'dropdown'
+        }]
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
         text: "label:"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
         onChange: this.handleChange('label'),
         placeholder: "eg. Name:",
         required: true
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "label-and-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        text: "placeholder:"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        onChange: this.handleChange('placeholder'),
-        placeholder: "eg. Please type your name here",
-        required: true
-      })), this.successfulAdd(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      })), fieldsToRender, this.successfulAdd(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_4__["default"], {
         text: "Add"
       }));
     }
@@ -49032,6 +49127,106 @@ Button.propTypes = {
 
 /***/ }),
 
+/***/ "./src/packages/forms/dropdown.jsx":
+/*!*****************************************!*\
+  !*** ./src/packages/forms/dropdown.jsx ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _dropdown_option__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dropdown_option */ "./src/packages/forms/dropdown_option.jsx");
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    border-radius: 3px;\n    font-size: medium;\n    border: 1px solid lightgray;\n    padding: 3px;\n    width: 80%;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+
+var List = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].select(_templateObject());
+
+var Dropdown = function Dropdown(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(List, {
+    onChange: props.onChange
+  }, props.options.map(function (option, i) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown_option__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      key: i,
+      value: option.value,
+      text: option.text
+    });
+  }));
+};
+
+Dropdown.propTypes = {
+  options: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Dropdown);
+
+/***/ }),
+
+/***/ "./src/packages/forms/dropdown_option.jsx":
+/*!************************************************!*\
+  !*** ./src/packages/forms/dropdown_option.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    font-size: medium;\n    border: 1px solid lightgray;\n    padding: 3px;\n    width: 80%;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var Opt = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].option(_templateObject());
+
+var DropdownOption = function DropdownOption(_ref) {
+  var value = _ref.value,
+      text = _ref.text;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Opt, {
+    value: value
+  }, text);
+};
+
+DropdownOption.propTypes = {
+  value: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (DropdownOption);
+
+/***/ }),
+
 /***/ "./src/packages/forms/field.jsx":
 /*!**************************************!*\
   !*** ./src/packages/forms/field.jsx ***!
@@ -49047,6 +49242,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./input */ "./src/packages/forms/input.jsx");
 /* harmony import */ var _textarea__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./textarea */ "./src/packages/forms/textarea.jsx");
+/* harmony import */ var _dropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dropdown */ "./src/packages/forms/dropdown.jsx");
+
 
 
 
@@ -49073,6 +49270,14 @@ var Field = function Field(_ref) {
           onChange: onChange,
           placeholder: field.placeholder,
           type: field.type
+        });
+      }
+
+    case 'dropdown':
+      {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          options: field.options,
+          onChange: onChange
         });
       }
   }
@@ -49320,10 +49525,17 @@ function (_React$Component) {
   return NewForm;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (NewForm); // we want to specify which props this Form takes
-// using PropTypes
-// we also want to use defaultProps to add some 
-// sensible data in case user does not supply un-required props
+NewForm.propTypes = {
+  fields: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.array.isRequired,
+  buttonText: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
+  onSubmit: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func
+};
+NewForm.defaultProps = {
+  onSubmit: function onSubmit(data) {
+    return console.log(data);
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (NewForm);
 
 /***/ }),
 
