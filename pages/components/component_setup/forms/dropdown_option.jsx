@@ -4,54 +4,93 @@ import { merge } from 'lodash';
 import Button from '../../../../src/packages/forms/button';
 import Label from '../../../../src/packages/forms/label';
 import Input from '../../../../src/packages/forms/input';
+import { Object } from 'es6-shim';
 
 class DropdownOptions extends React.Component {
-    state = { text: "", value: "", options: [], added: false };
+    state = { 
+        count: 1 ,
+        options: {
+            0: { text: "", value: "" }
+        }
+    };
 
-    handleChange = (e) => {
-        const { value } = e.target;
-        const newState = merge({}, this.state);
-        this.setState({ 
-            options: newState.options, 
-            text: value, value, 
-            added: false 
-        });
+    handleChange = (idx) => {
+        return (e) => {
+            const newState = merge({}, this.state);
+            newState.options[idx].text = e.target.value;
+            newState.options[idx].value = e.target.value;
+            this.setState({ 
+                options: newState.options
+            });
+        }
+    }
+
+    // addToOptions = (idx) => {
+    //     return (e) => {
+    //         e.preventDefault();
+    //         e.stopPropagation();
+    //     }
+    // }
+
+    removeOption = (idx) => {
+        return (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const newState = merge({}, this.state);
+            delete newState.options[idx];
+            const options = Object.values(newState.options);
+            options.forEach((option, i) => {
+                newState.options[i] = option;
+            })
+
+            this.setState({ options: newState.options, count: newState.count - 1 });
+        }
     }
 
     addOption = (e) => {
         e.preventDefault(); 
         e.stopPropagation();
         const newState = merge({}, this.state);
-        newState.options.push({ text: newState.value, value: newState.value });
-        this.setState({ 
-            options: newState.options, 
-            added: true, 
-            text: "", 
-            value: "" 
-        });
+        const idxs = Object.keys(newState.options);
+        newState.options[idxs.length] = { text: '', value: '' };
+        const { count, options } = newState;
+        this.setState({ count: count + 1, options });
+    }
+
+    renderOptions = () => {
+        const renderOptions = [];
+        const { count, options } = this.state;
+
+        for (let i = 0; i < count; i++) {
+            const option = options[i];
+            renderOptions.push(
+                <div className="dropdown-option" key={i}>
+                    <Label text="option text:"></Label>
+                    <Input
+                        onChange={this.handleChange(i)}
+                        placeholder="enter text to display"
+                        type="text"
+                        required={true}
+                        value={option.text}>
+                    </Input>
+                    <Button text="x" onClick={this.removeOption(i)}></Button>
+                </div>
+            )
+        }
+
+        return renderOptions;
     }
 
     render() {
-        const success = this.state.added ? <p>Good!</p> : null;
-
         return (
             <div>
-                <div className="dropdown-option">
-                    <Label text="option text:"></Label>
-                    <Input
-                        onChange={this.handleChange}
-                        placeholder="enter text to display"
-                        type="text"
-                        value={this.state.text}>
-                    </Input>
-                </div>
-                {success}
+                {this.renderOptions()}
                 <Button 
-                    text="add as option"
+                    text="add another"
                     onClick={this.addOption}>
                 </Button>
                 <Button 
-                    text="add field/options to form"
+                    text="add to form"
                     onClick={this.props.addOptions(this.state.options)}>
                 </Button>
             </div>

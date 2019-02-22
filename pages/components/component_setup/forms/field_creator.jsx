@@ -61,7 +61,7 @@ class FieldCreator extends React.Component {
             } else {
                 newState.field.options.push(option);
             }
-            debugger
+
             this.setState({
                 field: newState.field,
             });
@@ -121,7 +121,7 @@ class FieldCreator extends React.Component {
         return (
             <form onSubmit={this.props.addField(this.state)}>
                 <div className="label-and-input" key="y">
-                    <Label text="html tag:"></Label>
+                    <Label text="field html tag:"></Label>
                     <Dropdown 
                         onChange={this.handleTagSelect}
                         options={[
@@ -133,7 +133,7 @@ class FieldCreator extends React.Component {
                     </Dropdown>
                 </div>
                 <div className="label-and-input">
-                    <Label text="label:"></Label>
+                    <Label text="field label:"></Label>
                     <Input
                         onChange={this.handleChange('label')}
                         placeholder="eg. Name:"
@@ -142,7 +142,6 @@ class FieldCreator extends React.Component {
                 </div>
                 {fieldsToRender}
                 {this.successfulAdd()}
-                <Button text="Add"></Button>
             </form>
         )
     }
