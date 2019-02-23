@@ -94,7 +94,6 @@ class FieldCreator extends React.Component {
                     <Dropdown 
                         onChange={this.handleTagSelect}
                         options={[
-                            { value: 'select one', text: 'select one'   },
                             { value: 'input', text: 'input'             },
                             { value: 'textarea', text: 'textarea'       },
                             { value: 'dropdown', text: 'dropdown'       },

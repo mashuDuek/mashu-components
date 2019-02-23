@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import DropdowOption from './dropdown_option';
+import DropdownOption from './dropdown_option';
 
 const List = styled.select`
     border-radius: 3px;
@@ -13,7 +14,12 @@ const List = styled.select`
 `;
 
 const Dropdown = (props) => (
-    <List onChange={props.onChange}>
+    <List onChange={props.onChange} value="disabled">
+        <DropdownOption 
+            key="x" 
+            text="select one" 
+            disabled={true}>
+        </DropdownOption>
         {props.options.map((option,i) => (
             <DropdowOption 
                 key={i}

@@ -52730,9 +52730,6 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_dropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onChange: this.handleTagSelect,
         options: [{
-          value: 'select one',
-          text: 'select one'
-        }, {
           value: 'input',
           text: 'input'
         }, {
@@ -53335,12 +53332,18 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var List = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].select(_templateObject());
 
 var Dropdown = function Dropdown(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(List, {
-    onChange: props.onChange
-  }, props.options.map(function (option, i) {
+    onChange: props.onChange,
+    value: "disabled"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown_option__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    key: "x",
+    text: "select one",
+    disabled: true
+  }), props.options.map(function (option, i) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown_option__WEBPACK_IMPORTED_MODULE_3__["default"], {
       key: i,
       value: option.value,
@@ -53390,15 +53393,24 @@ var Opt = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].option(_temp
 
 var DropdownOption = function DropdownOption(_ref) {
   var value = _ref.value,
-      text = _ref.text;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Opt, {
+      text = _ref.text,
+      disabled = _ref.disabled;
+  return disabled ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Opt, {
+    value: "disabled",
+    disabled: true
+  }, text) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Opt, {
     value: value
   }, text);
 };
 
 DropdownOption.propTypes = {
   value: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired
+  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool
+};
+DropdownOption.defaultProps = {
+  disabled: false,
+  value: ""
 };
 /* harmony default export */ __webpack_exports__["default"] = (DropdownOption);
 

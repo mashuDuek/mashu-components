@@ -9,13 +9,19 @@ const Opt = styled.option`
     width: 80%;
 `;
 
-const DropdownOption = ({ value, text }) => (
-    <Opt value={value}>{text}</Opt>
+const DropdownOption = ({ value, text, disabled }) => (
+    disabled ? <Opt value="disabled" disabled>{text}</Opt> : <Opt value={value}>{text}</Opt>
 );
 
 DropdownOption.propTypes = {
     value: PropTypes.string,
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    disabled: PropTypes.bool
+};
+
+DropdownOption.defaultProps = {
+    disabled: false,
+    value: ""
 };
 
 export default DropdownOption;
