@@ -15,17 +15,14 @@ class FormCreator extends React.Component {
         }
     };
 
-    addField = (field) => {
-        return () => {
-            debugger
-            const newState = merge({}, this.state);
-            newState.props.fields.push(field)
-            this.setState({ 
-                fieldCount: this.state.fieldCount, 
-                props: newState.props,
-                success: true
-            });
-        };
+    addField = (field) => () => {
+        const newState = merge({}, this.state);
+        newState.props.fields.push(field)
+        this.setState({ 
+            fieldCount: this.state.fieldCount, 
+            props: newState.props,
+            success: true
+        });
     };
 
     incrementFieldCount = () => {

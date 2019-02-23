@@ -6,7 +6,7 @@ import Dropdown from '../../../../src/packages/forms/dropdown';
 import Label from '../../../../src/packages/forms/label';
 
 import DropdownOptions from './dropdown_options';
-import InputField from './input_creator';
+import InputFieldCreator from './input_creator';
 
 class FieldCreator extends React.Component {
     state = {
@@ -29,13 +29,19 @@ class FieldCreator extends React.Component {
         this.setState({ field: newState.field, chosen: true });
     };
 
-    renderDropdownFields = () => (
+    renderDropdownFieldCreator = () => (
         <DropdownOptions
             addOptions={this.props.addField}>
         </DropdownOptions>
     );
 
-    renderTextareaField = () => (
+    renderInputFieldCreator = () => (
+        <InputFieldCreator
+            addInput={this.props.addField}>
+        </InputFieldCreator>
+    );
+
+    renderTextareaFieldCreator = () => (
         <div className="label-and-input">
             <Label text="placeholder:"></Label>
             <Input
@@ -45,45 +51,16 @@ class FieldCreator extends React.Component {
             </Input>
         </div>
     );
-
-    renderInputFields = () => (
-        <InputField 
-            addInputField={this.props.addInput}>
-        </InputField>
-    );
-        // <div>
-        //     <div className="label-and-input">
-        //         <Label text="type:"></Label>
-        //         <Dropdown
-        //             type="dropdown"
-        //             onChange={this.handleChange('type')}
-        //             options={[
-        //                 { text: 'date', value: 'date' },
-        //                 { text: 'input', value: 'input' },
-        //                 { text: 'textarea', value: 'textarea' },
-        //             ]}
-        //             required={true}>
-        //         </Dropdown>
-        //     </div>
-        //     <div className="label-and-input">
-        //         <Label text="placeholder:"></Label>
-        //         <Input
-        //             onChange={this.handleChange('placeholder')}
-        //             placeholder="eg. Please type your name here"
-        //             required={true}>
-        //         </Input>
-        //     </div>
-        // </div>
     
     render () {
         let fieldsToRender = null;
         if (this.state.chosen) {
             if (this.state.field.tag === 'dropdown') {
-                fieldsToRender = this.renderDropdownFields();
+                fieldsToRender = this.renderDropdownFieldCreator();
             } else if (this.state.field.tag === 'textarea') {
-                fieldsToRender = this.renderTextareaField();
+                fieldsToRender = this.renderTextareaFieldCreator();
             } else if (this.state.field.tag === 'input') {
-                fieldsToRender = this.renderInputFields();
+                fieldsToRender = this.renderInputFieldCreator();
             };
         };
 
@@ -104,7 +81,7 @@ class FieldCreator extends React.Component {
                 {fieldsToRender}
                 {this.successfulAdd()}
             </form>
-        )
+        );
     }
 }
 
