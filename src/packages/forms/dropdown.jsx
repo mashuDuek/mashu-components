@@ -14,7 +14,7 @@ const List = styled.select`
 `;
 
 const Dropdown = (props) => (
-    <List onChange={props.onChange} value="disabled">
+    <List onChange={props.onChange} defaultValue="disabled" required={true}>
         <DropdownOption 
             key="x" 
             text="select one" 

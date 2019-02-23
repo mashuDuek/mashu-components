@@ -53075,7 +53075,6 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderForm", function () {
       if (!_this.state.form) return null;
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_regular_form__WEBPACK_IMPORTED_MODULE_2__["default"], {
         fields: _this.state.form.fields,
         buttonText: _this.state.form.buttonText
@@ -53338,7 +53337,8 @@ var List = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].select(_tem
 var Dropdown = function Dropdown(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(List, {
     onChange: props.onChange,
-    value: "disabled"
+    defaultValue: "disabled",
+    required: true
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown_option__WEBPACK_IMPORTED_MODULE_3__["default"], {
     key: "x",
     text: "select one",

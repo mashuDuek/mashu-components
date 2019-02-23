@@ -11,7 +11,7 @@ class NewForm extends React.Component {
 
     renderForm = () => {
         if (!this.state.form) return null;
-        debugger
+
         return (
             <FormComp
                 fields={this.state.form.fields}
