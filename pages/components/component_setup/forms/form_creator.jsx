@@ -17,6 +17,7 @@ class FormCreator extends React.Component {
 
     addField = (field) => {
         return () => {
+            debugger
             const newState = merge({}, this.state);
             newState.props.fields.push(field)
             this.setState({ 
@@ -53,7 +54,7 @@ class FormCreator extends React.Component {
             );
         };
 
-        const button = (
+        const buttonTextField = (
             <div className="label-and-input" key="x">
                 <Label text="submit button text:"></Label>
                 <Input 
@@ -63,7 +64,7 @@ class FormCreator extends React.Component {
             </div>
         );
 
-        fields.push(button);
+        fields.push(buttonTextField);
         return fields;
     };
 

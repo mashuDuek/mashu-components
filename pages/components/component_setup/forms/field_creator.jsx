@@ -6,14 +6,11 @@ import Dropdown from '../../../../src/packages/forms/dropdown';
 import Button from '../../../../src/packages/forms/button';
 import Label from '../../../../src/packages/forms/label';
 
-import DropdownOptions from './dropdown_option';
+import DropdownOptions from './dropdown_options';
 
 class FieldCreator extends React.Component {
     state = {
         field: {},
-        selectedDropdown: false,
-        selectedInput: false,
-        selectedTextarea: false,
         chosen: false
     };
 
@@ -28,45 +25,15 @@ class FieldCreator extends React.Component {
 
     handleTagSelect = (e) => {
         const newState = merge({}, this.state);
-
         newState.field.tag = e.target.value;
-        if (e.target.value === 'dropdown') {
-            this.setState({ 
-                field: newState.field, 
-                chosen: true, 
-                selectedDropdown: true,
-            });
-        } else if (e.target.value === 'textarea') {
-            this.setState({
-                field: newState.field,
-                chosen: true,
-                selectedTextarea: true,
-            });
-        } else {
-            this.setState({
-                field: newState.field,
-                chosen: true,
-                selectedInput: true
-            });
-        };
+        this.setState({ field: newState.field, chosen: true });
     };
 
-    addOptions = (option) => {
-        return (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const newState = merge({}, this.state);
-            if (!newState.field.options) {
-                newState.field.options = [option];
-            } else {
-                newState.field.options.push(option);
-            }
-
-            this.setState({
-                field: newState.field,
-            });
-        };
-    };
+    renderDropdownFields = () => (
+        <DropdownOptions
+            addOptions={this.props.addField}>
+        </DropdownOptions>
+    );
 
     renderTextareaField = () => (
         <div className="label-and-input">
@@ -99,12 +66,6 @@ class FieldCreator extends React.Component {
             </div>
         </div>
     );
-
-    renderDropdownFields = () => (
-        <DropdownOptions
-            addOptions={this.addOptions.bind(this)}>
-        </DropdownOptions>
-    );
     
     render () {
         let fieldsToRender = null;
@@ -119,7 +80,7 @@ class FieldCreator extends React.Component {
         };
 
         return (
-            <form onSubmit={this.props.addField(this.state)}>
+            <form>
                 <div className="label-and-input" key="y">
                     <Label text="field html tag:"></Label>
                     <Dropdown 

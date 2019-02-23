@@ -25,13 +25,6 @@ class DropdownOptions extends React.Component {
         }
     }
 
-    // addToOptions = (idx) => {
-    //     return (e) => {
-    //         e.preventDefault();
-    //         e.stopPropagation();
-    //     }
-    // }
-
     removeOption = (idx) => {
         return (e) => {
             e.preventDefault();
@@ -82,6 +75,11 @@ class DropdownOptions extends React.Component {
     }
 
     render() {
+        const toSendUp = {
+            tag: 'dropdown',
+            options: Object.values(this.state.options)
+        };
+
         return (
             <div>
                 {this.renderOptions()}
@@ -91,7 +89,7 @@ class DropdownOptions extends React.Component {
                 </Button>
                 <Button 
                     text="add to form"
-                    onClick={this.props.addOptions(this.state.options)}>
+                    onClick={this.props.addOptions(toSendUp)}>
                 </Button>
             </div>
         )

@@ -52364,10 +52364,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./pages/components/component_setup/forms/dropdown_option.jsx":
-/*!********************************************************************!*\
-  !*** ./pages/components/component_setup/forms/dropdown_option.jsx ***!
-  \********************************************************************/
+/***/ "./pages/components/component_setup/forms/dropdown_options.jsx":
+/*!*********************************************************************!*\
+  !*** ./pages/components/component_setup/forms/dropdown_options.jsx ***!
+  \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -52523,12 +52523,16 @@ function (_React$Component) {
   _createClass(DropdownOptions, [{
     key: "render",
     value: function render() {
+      var toSendUp = {
+        tag: 'dropdown',
+        options: es6_shim__WEBPACK_IMPORTED_MODULE_5__["Object"].values(this.state.options)
+      };
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.renderOptions(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         text: "add another",
         onClick: this.addOption
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         text: "add to form",
-        onClick: this.props.addOptions(this.state.options)
+        onClick: this.props.addOptions(toSendUp)
       }));
     }
   }]);
@@ -52557,7 +52561,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_packages_forms_dropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../src/packages/forms/dropdown */ "./src/packages/forms/dropdown.jsx");
 /* harmony import */ var _src_packages_forms_button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../src/packages/forms/button */ "./src/packages/forms/button.jsx");
 /* harmony import */ var _src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../src/packages/forms/label */ "./src/packages/forms/label.jsx");
-/* harmony import */ var _dropdown_option__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dropdown_option */ "./pages/components/component_setup/forms/dropdown_option.jsx");
+/* harmony import */ var _dropdown_options__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dropdown_options */ "./pages/components/component_setup/forms/dropdown_options.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52606,9 +52610,6 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       field: {},
-      selectedDropdown: false,
-      selectedInput: false,
-      selectedTextarea: false,
       chosen: false
     });
 
@@ -52629,45 +52630,16 @@ function (_React$Component) {
       var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
       newState.field.tag = e.target.value;
 
-      if (e.target.value === 'dropdown') {
-        _this.setState({
-          field: newState.field,
-          chosen: true,
-          selectedDropdown: true
-        });
-      } else if (e.target.value === 'textarea') {
-        _this.setState({
-          field: newState.field,
-          chosen: true,
-          selectedTextarea: true
-        });
-      } else {
-        _this.setState({
-          field: newState.field,
-          chosen: true,
-          selectedInput: true
-        });
-      }
-
-      ;
+      _this.setState({
+        field: newState.field,
+        chosen: true
+      });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addOptions", function (option) {
-      return function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
-
-        if (!newState.field.options) {
-          newState.field.options = [option];
-        } else {
-          newState.field.options.push(option);
-        }
-
-        _this.setState({
-          field: newState.field
-        });
-      };
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderDropdownFields", function () {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown_options__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        addOptions: _this.props.addField
+      });
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderTextareaField", function () {
@@ -52702,12 +52674,6 @@ function (_React$Component) {
       })));
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderDropdownFields", function () {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dropdown_option__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        addOptions: _this.addOptions.bind(_assertThisInitialized(_assertThisInitialized(_this)))
-      });
-    });
-
     return _this;
   }
 
@@ -52729,9 +52695,7 @@ function (_React$Component) {
       }
 
       ;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.props.addField(this.state)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input",
         key: "y"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -52842,6 +52806,7 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addField", function (field) {
       return function () {
+        debugger;
         var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
         newState.props.fields.push(field);
 
@@ -52886,7 +52851,7 @@ function (_React$Component) {
       }
 
       ;
-      var button = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var buttonTextField = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input",
         key: "x"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -52895,7 +52860,7 @@ function (_React$Component) {
         onChange: _this.handleButtonText,
         placeholder: "text for form submit button"
       }));
-      fields.push(button);
+      fields.push(buttonTextField);
       return fields;
     });
 
