@@ -5,6 +5,7 @@ import FieldCreator from './field_creator';
 import Button from '../../../../src/packages/forms/button';
 import Input from '../../../../src/packages/forms/input';
 import Label from '../../../../src/packages/forms/label';
+import { tag } from 'postcss-selector-parser';
 
 class FormCreator extends React.Component {
     state = {
@@ -16,8 +17,12 @@ class FormCreator extends React.Component {
     };
 
     addField = (field) => () => {
+        const { tag, type, label, placeholder } = field;
+        if ((tag === 'input' && type === 'text')
+            && (label === '' || placeholder === '')) return;
+
         const newState = merge({}, this.state);
-        newState.props.fields.push(field)
+        newState.props.fields.push(field);
         this.setState({ 
             fieldCount: this.state.fieldCount, 
             props: newState.props,
@@ -26,7 +31,7 @@ class FormCreator extends React.Component {
     };
 
     incrementFieldCount = () => {
-        this.setState({ fieldCount: this.state.fieldCount + 1 });
+        this.setState({ fieldCount: this.state.fieldCount + 1, success: false });
     };
 
     handleButtonText = (e) => {

@@ -43,8 +43,7 @@ class InputFields extends React.Component {
                         onChange={this.handleType}
                         options={[
                             { text: 'date', value: 'date' },
-                            { text: 'text', value: 'text' },
-                            { text: 'textarea', value: 'textarea' }
+                            { text: 'text', value: 'text' }
                         ]}>
                     </Dropdown>
                 </div>

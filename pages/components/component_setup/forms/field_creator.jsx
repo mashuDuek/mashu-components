@@ -7,6 +7,7 @@ import Label from '../../../../src/packages/forms/label';
 
 import DropdownOptions from './dropdown_options';
 import InputFieldCreator from './input_creator';
+import TextareaFieldCreator from './textarea_creator';
 
 class FieldCreator extends React.Component {
     state = {
@@ -42,14 +43,9 @@ class FieldCreator extends React.Component {
     );
 
     renderTextareaFieldCreator = () => (
-        <div className="label-and-input">
-            <Label text="field placeholder:"></Label>
-            <Input
-                onChange={this.handleChange('placeholder')}
-                placeholder="what will your placeholder be?"
-                required={true}>
-            </Input>
-        </div>
+        <TextareaFieldCreator
+            addTextarea={this.props.addField}>
+        </TextareaFieldCreator>
     );
     
     render () {
