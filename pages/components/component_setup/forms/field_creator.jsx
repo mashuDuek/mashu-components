@@ -3,7 +3,6 @@ import { merge } from 'lodash';
 
 import Input from '../../../../src/packages/forms/input';
 import Dropdown from '../../../../src/packages/forms/dropdown';
-import Button from '../../../../src/packages/forms/button';
 import Label from '../../../../src/packages/forms/label';
 
 import DropdownOptions from './dropdown_options';
@@ -14,13 +13,13 @@ class FieldCreator extends React.Component {
         chosen: false
     };
 
-    handleChange = (field) => (e) => {
-        this.setState({ [field]: e.target.value });
-    };
-
     successfulAdd = () => {
         if (this.props.success) return <p className="success">Success!</p>;
         return null;
+    };
+
+    handleChange = (field) => (e) => {
+        this.setState({ [field]: e.target.value });
     };
 
     handleTagSelect = (e) => {
@@ -93,14 +92,7 @@ class FieldCreator extends React.Component {
                         ]}>
                     </Dropdown>
                 </div>
-                <div className="label-and-input">
-                    <Label text="field label:"></Label>
-                    <Input
-                        onChange={this.handleChange('label')}
-                        placeholder="eg. Name:"
-                        required={true}>
-                    </Input>
-                </div>
+
                 {fieldsToRender}
                 {this.successfulAdd()}
             </form>

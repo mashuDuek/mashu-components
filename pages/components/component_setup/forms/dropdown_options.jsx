@@ -9,19 +9,24 @@ import { Object } from 'es6-shim';
 class DropdownOptions extends React.Component {
     state = { 
         count: 1 ,
+        label: '',
         options: {
-            0: { text: "", value: "" }
+            0: { text: '', value: '' }
         }
     };
 
     handleChange = (idx) => {
         return (e) => {
             const newState = merge({}, this.state);
-            newState.options[idx].text = e.target.value;
-            newState.options[idx].value = e.target.value;
-            this.setState({ 
-                options: newState.options
-            });
+            if (idx === 'label') {
+                this.setState({ label: e.target.value, options: newState.options });
+            } else {
+                newState.options[idx].text = e.target.value;
+                newState.options[idx].value = e.target.value;
+                this.setState({ 
+                    options: newState.options
+                });
+            }
         }
     }
 
@@ -77,11 +82,20 @@ class DropdownOptions extends React.Component {
     render() {
         const toSendUp = {
             tag: 'dropdown',
+            label: this.state.label,
             options: Object.values(this.state.options)
         };
 
         return (
             <div>
+                <div className="label-and-input">
+                    <Label text="field label:"></Label>
+                    <Input
+                        onChange={this.handleChange('label')}
+                        placeholder="eg. Name:"
+                        required={true}>
+                    </Input>
+                </div>
                 {this.renderOptions()}
                 <Button 
                     text="add another"
