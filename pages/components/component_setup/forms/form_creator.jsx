@@ -11,7 +11,7 @@ class FormCreator extends React.Component {
         fieldCount: 1,
         props: { 
             fields: [],
-            buttonText: ""
+            buttonText: ''
         }
     };
 
@@ -29,15 +29,13 @@ class FormCreator extends React.Component {
         this.setState({ fieldCount: this.state.fieldCount + 1 });
     };
 
-    handleDropdownChoice = (e) => {
-        const newState = merge({}, this.state);
-        newState.props.field
-    }
-
     handleButtonText = (e) => {
         const newState = merge({}, this.state);
         newState.props.buttonText = e.target.value;
-        this.setState({ props: newState.props, fieldCount: this.state.fieldCount });
+        this.setState({ 
+            props: newState.props, 
+            fieldCount: this.state.fieldCount 
+        });
     };
 
     renderFieldForm = () => {
@@ -53,10 +51,10 @@ class FormCreator extends React.Component {
 
         const buttonTextField = (
             <div className="label-and-input" key="x">
-                <Label text="submit button text:"></Label>
+                <Label text="form submit button text:"></Label>
                 <Input 
                     onChange={this.handleButtonText} 
-                    placeholder="text for form submit button">
+                    placeholder="what will your submit button say?">
                 </Input>
             </div>
         );
@@ -69,11 +67,14 @@ class FormCreator extends React.Component {
         return (
             <div className="form-creator">
                 Create-a-Form Form
-                <Button onClick={this.incrementFieldCount} text="Add Field"></Button>
+                <Button 
+                    text="Add Field"
+                    onClick={this.incrementFieldCount}>
+                </Button>
                 {this.renderFieldForm()}
                 <Button 
-                    onClick={this.props.createForm(this.state.props)}
-                    text="Create Form">
+                    text="Create Form"
+                    onClick={this.props.createForm(this.state.props)}>
                 </Button>
             </div>
         );

@@ -43,10 +43,10 @@ class FieldCreator extends React.Component {
 
     renderTextareaFieldCreator = () => (
         <div className="label-and-input">
-            <Label text="placeholder:"></Label>
+            <Label text="field placeholder:"></Label>
             <Input
                 onChange={this.handleChange('placeholder')}
-                placeholder="eg. Please type your name here"
+                placeholder="what will your placeholder be?"
                 required={true}>
             </Input>
         </div>
@@ -71,9 +71,9 @@ class FieldCreator extends React.Component {
                     <Dropdown 
                         onChange={this.handleTagSelect}
                         options={[
-                            { value: 'input', text: 'input'             },
-                            { value: 'textarea', text: 'textarea'       },
-                            { value: 'dropdown', text: 'dropdown'       },
+                            { value: 'input', text: 'input'       },
+                            { value: 'textarea', text: 'textarea' },
+                            { value: 'dropdown', text: 'dropdown' }
                         ]}>
                     </Dropdown>
                 </div>

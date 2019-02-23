@@ -23,7 +23,8 @@ class NewForm extends React.Component {
     render() {
         return (
             <div className="form-creator-and-form">
-                <FormCreator createForm={this.createForm.bind(this)}></FormCreator>
+                <FormCreator createForm={this.createForm.bind(this)}>
+                </FormCreator>
                 {this.renderForm()}
             </div>
         )

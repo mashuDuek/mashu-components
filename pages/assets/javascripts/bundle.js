@@ -52670,10 +52670,10 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        text: "placeholder:"
+        text: "field placeholder:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_2__["default"], {
         onChange: _this.handleChange('placeholder'),
-        placeholder: "eg. Please type your name here",
+        placeholder: "what will your placeholder be?",
         required: true
       }));
     });
@@ -52793,7 +52793,7 @@ function (_React$Component) {
       fieldCount: 1,
       props: {
         fields: [],
-        buttonText: ""
+        buttonText: ''
       }
     });
 
@@ -52814,11 +52814,6 @@ function (_React$Component) {
       _this.setState({
         fieldCount: _this.state.fieldCount + 1
       });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDropdownChoice", function (e) {
-      var newState = Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, _this.state);
-      newState.props.field;
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleButtonText", function (e) {
@@ -52847,10 +52842,10 @@ function (_React$Component) {
         className: "label-and-input",
         key: "x"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        text: "submit button text:"
+        text: "form submit button text:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_4__["default"], {
         onChange: _this.handleButtonText,
-        placeholder: "text for form submit button"
+        placeholder: "what will your submit button say?"
       }));
       fields.push(buttonTextField);
       return fields;
@@ -52865,11 +52860,11 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-creator"
       }, "Create-a-Form Form", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        onClick: this.incrementFieldCount,
-        text: "Add Field"
+        text: "Add Field",
+        onClick: this.incrementFieldCount
       }), this.renderFieldForm(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        onClick: this.props.createForm(this.state.props),
-        text: "Create Form"
+        text: "Create Form",
+        onClick: this.props.createForm(this.state.props)
       }));
     }
   }]);
@@ -52987,7 +52982,6 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: "field type:"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_dropdown__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        type: "dropdown",
         onChange: this.handleType,
         options: [{
           text: 'date',

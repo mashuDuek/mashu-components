@@ -8,16 +8,9 @@ import Button from '../../../../src/packages/forms/button';
 class InputFields extends React.Component {
     state = { tag: 'input', type: '', placeholder: '', label: '' };
 
-    // required: PropTypes.bool,
-    // type: PropTypes.string,
-    // placeholder: PropTypes.string.isRequired,
-    // onChange: PropTypes.func,
-    // value: PropTypes.string
     renderTextInputFields = () => (
         <div className="label-and-input">
-            <Label
-                text="field placeholder:">
-            </Label>
+            <Label text="field placeholder:"></Label>
             <Input
                 onChange={this.handleChange('placeholder')}
                 placeholder="enter placeholder"
@@ -47,7 +40,6 @@ class InputFields extends React.Component {
                 <div className="label-and-input">
                     <Label text="field type:"></Label>
                     <Dropdown
-                        type="dropdown"
                         onChange={this.handleType}
                         options={[
                             { text: 'date', value: 'date' },
