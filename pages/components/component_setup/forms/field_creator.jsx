@@ -6,6 +6,7 @@ import Dropdown from '../../../../src/packages/forms/dropdown';
 import Label from '../../../../src/packages/forms/label';
 
 import DropdownOptions from './dropdown_options';
+import InputField from './input_creator';
 
 class FieldCreator extends React.Component {
     state = {
@@ -46,25 +47,33 @@ class FieldCreator extends React.Component {
     );
 
     renderInputFields = () => (
-        <div>
-            <div className="label-and-input">
-                <Label text="type:"></Label>
-                <Input
-                    onChange={this.handleChange('type')}
-                    placeholder="supported: 'date', 'number', 'text'"
-                    required={true}>
-                </Input>
-            </div>
-            <div className="label-and-input">
-                <Label text="placeholder:"></Label>
-                <Input
-                    onChange={this.handleChange('placeholder')}
-                    placeholder="eg. Please type your name here"
-                    required={true}>
-                </Input>
-            </div>
-        </div>
+        <InputField 
+            addInputField={this.props.addInput}>
+        </InputField>
     );
+        // <div>
+        //     <div className="label-and-input">
+        //         <Label text="type:"></Label>
+        //         <Dropdown
+        //             type="dropdown"
+        //             onChange={this.handleChange('type')}
+        //             options={[
+        //                 { text: 'date', value: 'date' },
+        //                 { text: 'input', value: 'input' },
+        //                 { text: 'textarea', value: 'textarea' },
+        //             ]}
+        //             required={true}>
+        //         </Dropdown>
+        //     </div>
+        //     <div className="label-and-input">
+        //         <Label text="placeholder:"></Label>
+        //         <Input
+        //             onChange={this.handleChange('placeholder')}
+        //             placeholder="eg. Please type your name here"
+        //             required={true}>
+        //         </Input>
+        //     </div>
+        // </div>
     
     render () {
         let fieldsToRender = null;
