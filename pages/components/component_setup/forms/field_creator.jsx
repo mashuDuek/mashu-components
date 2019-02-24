@@ -1,8 +1,8 @@
 import React from 'react';
 import { merge } from 'lodash';
 
-import Input from '../../../../src/packages/forms/input';
 import Dropdown from '../../../../src/packages/forms/dropdown';
+import Button from '../../../../src/packages/forms/button';
 import Label from '../../../../src/packages/forms/label';
 
 import DropdownOptions from './dropdown_options';
@@ -12,7 +12,6 @@ import TextareaFieldCreator from './textarea_creator';
 class FieldCreator extends React.Component {
     state = {
         field: {},
-        chosen: false
     };
 
     successfulAdd = () => {
@@ -27,38 +26,39 @@ class FieldCreator extends React.Component {
     handleTagSelect = (e) => {
         const newState = merge({}, this.state);
         newState.field.tag = e.target.value;
-        this.setState({ field: newState.field, chosen: true });
+        this.setState({ field: newState.field });
     };
 
     renderDropdownFieldCreator = () => (
         <DropdownOptions
+            success={this.props.success}
+            removeField={this.props.removeField}
             addOptions={this.props.addField}>
         </DropdownOptions>
     );
 
     renderInputFieldCreator = () => (
         <InputFieldCreator
+            success={this.props.success}
+            removeField={this.props.removeField}
             addInput={this.props.addField}>
         </InputFieldCreator>
     );
-
+    
     renderTextareaFieldCreator = () => (
         <TextareaFieldCreator
+            success={this.props.success}
+            removeField={this.props.removeField}
             addTextarea={this.props.addField}>
         </TextareaFieldCreator>
     );
     
     render () {
         let fieldsToRender = null;
-        if (this.state.chosen) {
-            if (this.state.field.tag === 'dropdown') {
-                fieldsToRender = this.renderDropdownFieldCreator();
-            } else if (this.state.field.tag === 'textarea') {
-                fieldsToRender = this.renderTextareaFieldCreator();
-            } else if (this.state.field.tag === 'input') {
-                fieldsToRender = this.renderInputFieldCreator();
-            };
-        };
+        const { tag } = this.state.field;
+        if (tag === 'dropdown') fieldsToRender = this.renderDropdownFieldCreator();
+        if (tag === 'textarea') fieldsToRender = this.renderTextareaFieldCreator();
+        if (tag === 'input') fieldsToRender = this.renderInputFieldCreator();
 
         return (
             <form>
@@ -73,9 +73,9 @@ class FieldCreator extends React.Component {
                         ]}>
                     </Dropdown>
                 </div>
-
+                
                 {fieldsToRender}
-                {this.successfulAdd()}
+
             </form>
         );
     }

@@ -11,9 +11,20 @@ class TextareaCreator extends React.Component {
         this.setState({ [field]: e.target.value });
     }
 
+    successfulAdd = () => {
+        if (this.props.success) return <p className="success">Success!</p>;
+        return null;
+    };
+
+
     render() {
+        const deletion = this.props.success ?
+            <Button text="delete field" onClick={this.props.removeField}>
+            </Button> : null;
+
+
         return (
-            <div>
+            <div className="fields-wrapper">
                 <div className="label-and-input">
                     <Label text="field label:"></Label>
                     <Input
@@ -31,10 +42,14 @@ class TextareaCreator extends React.Component {
                         required={true}>
                     </Input>
                 </div>
-                <Button
-                    text="add to form"
-                    onClick={this.props.addTextarea(this.state)}>
-                </Button>
+                <div className="dropdown-options-buttons">
+                    {deletion}
+                    <Button
+                        className="add-to-form-button"
+                        text="add to form"
+                        onClick={this.props.addTextarea(this.state)}>
+                    </Button>
+                </div>
             </div>
         );
     }

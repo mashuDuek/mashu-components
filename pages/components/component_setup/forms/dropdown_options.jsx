@@ -15,6 +15,12 @@ class DropdownOptions extends React.Component {
         }
     };
 
+    successfulAdd = () => {
+        if (this.props.success) return <p className="success">Success!</p>;
+        return null;
+    };
+
+
     handleChange = (idx) => {
         return (e) => {
             const newState = merge({}, this.state);
@@ -36,12 +42,13 @@ class DropdownOptions extends React.Component {
             e.stopPropagation();
             const newState = merge({}, this.state);
             delete newState.options[idx];
-            const options = Object.values(newState.options);
-            options.forEach((option, i) => {
-                newState.options[i] = option;
-            })
-
-            this.setState({ options: newState.options, count: newState.count - 1 });
+            const newOptions = {};
+            
+            Object.values(newState.options).forEach((option, i) => {
+                newOptions[i] = option;
+            });
+            
+            this.setState({ options: newOptions, count: newState.count - 1 });
         }
     }
 
@@ -68,7 +75,7 @@ class DropdownOptions extends React.Component {
                         onChange={this.handleChange(i)}
                         placeholder="enter text to display"
                         type="text"
-                        required={true}
+                        required={i === 0}
                         value={option.text}>
                     </Input>
                     <Button text="x" onClick={this.removeOption(i)}></Button>
@@ -86,8 +93,12 @@ class DropdownOptions extends React.Component {
             options: Object.values(this.state.options)
         };
 
+        const deletion = this.props.success ?
+            <Button text="delete field" onClick={this.props.removeField}>
+            </Button> : null;
+
         return (
-            <div>
+            <div className="fields-wrapper">
                 <div className="label-and-input">
                     <Label text="field label:"></Label>
                     <Input
@@ -97,14 +108,18 @@ class DropdownOptions extends React.Component {
                     </Input>
                 </div>
                 {this.renderOptions()}
-                <Button 
-                    text="add another"
-                    onClick={this.addOption}>
-                </Button>
-                <Button 
-                    text="add to form"
-                    onClick={this.props.addOptions(toSendUp)}>
-                </Button>
+                <div className="dropdown-options-buttons">
+                    <Button 
+                        text="add another option"
+                        onClick={this.addOption}>
+                    </Button>
+                    {deletion}
+                    <Button 
+                        className="add-to-form-button"
+                        text="add to form"
+                        onClick={this.props.addOptions(toSendUp)}>
+                    </Button>
+                </div>
             </div>
         )
     }

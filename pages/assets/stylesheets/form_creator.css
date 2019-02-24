@@ -3,6 +3,10 @@
     width: 90%;
 }
 
+.form-creator-and-form form {
+    background-color: #F6F9B3;
+}
+
 .form-creator-and-form .form-creator {
     display: flex;
     flex-direction: column;
@@ -12,10 +16,13 @@
 
 .form-creator-and-form .form-creator form {
     height: inherit;
-    width: 100%;
+    width: calc(100% - 20px);
     display: flex; 
     flex-direction: column;
     align-items: space-around;
+    margin: 5px;
+    padding: 10px;
+    background-color: #E7E8E8;
 }
 
 .form-creator-and-form .form-creator form .label-and-input {
@@ -25,10 +32,28 @@
     margin: 5px 0;
 }
 
+.form-creator-and-form .form-creator .label-and-input.submit-button {
+    display: flex;
+    width: calc(100% - 20px);
+    background-color: #E7E8E8;
+    padding: 10px;
+    margin: 5px;
+}
+
 .form-creator-and-form .form-creator .dropdown-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 5px 0;
+    margin-left: 5%;
+}
 
+.fields-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-options-buttons {
+    display: flex;
+    justify-content: flex-end;
 }

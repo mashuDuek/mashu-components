@@ -20,6 +20,12 @@ class InputFields extends React.Component {
         </div>
     );
 
+    successfulAdd = () => {
+        if (this.props.success) return <p className="success">Success!</p>;
+        return null;
+    };
+
+
     handleType = (e) => {
         e.target.value === 'date' ? 
             this.setState({ type: e.target.value }) : 
@@ -35,8 +41,12 @@ class InputFields extends React.Component {
             this.state.type === 'date' ? null : this.renderTextInputFields()
         );
 
+        const deletion = this.props.success ?
+            <Button text="delete field" onClick={this.props.removeField}>
+            </Button> : null;
+
         return (
-            <div>
+            <div className="fields-wrapper">
                 <div className="label-and-input">
                     <Label text="field type:"></Label>
                     <Dropdown
@@ -57,10 +67,14 @@ class InputFields extends React.Component {
                     </Input>
                 </div>
                 {textInputs}
-                <Button 
-                    text="add to form" 
-                    onClick={this.props.addInput(this.state)}>
-                </Button>
+                <div className="dropdown-options-buttons">
+                    {deletion}
+                    <Button 
+                        className="add-to-form-button"
+                        text="add to form" 
+                        onClick={this.props.addInput(this.state)}>
+                    </Button>
+                </div>
             </div>
         )
     }
