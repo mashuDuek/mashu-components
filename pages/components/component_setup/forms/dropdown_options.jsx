@@ -70,15 +70,18 @@ class DropdownOptions extends React.Component {
             const option = options[i];
             renderOptions.push(
                 <div className="dropdown-option" key={i}>
-                    <Label text="option text:"></Label>
-                    <Input
-                        onChange={this.handleChange(i)}
-                        placeholder="enter text to display"
-                        type="text"
-                        required={i === 0}
-                        value={option.text}>
-                    </Input>
                     <Button text="x" onClick={this.removeOption(i)}></Button>
+                    <div className="label-and-option">
+                        <Label text="option text:"></Label>
+                        <Input
+                            onChange={this.handleChange(i)}
+                            placeholder="enter text to display"
+                            type="text"
+                            required={i === 0}
+                            value={option.text}>
+                        </Input>
+
+                    </div>
                 </div>
             )
         }
@@ -109,10 +112,12 @@ class DropdownOptions extends React.Component {
                 </div>
                 {this.renderOptions()}
                 <div className="dropdown-options-buttons">
-                    <Button 
-                        text="add another option"
-                        onClick={this.addOption}>
-                    </Button>
+                    <div className="add-new-option">
+                        <Button 
+                            text="add option"
+                            onClick={this.addOption}>
+                        </Button>
+                    </div>
                     {deletion}
                     <Button 
                         className="add-to-form-button"

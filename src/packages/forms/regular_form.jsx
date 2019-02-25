@@ -11,7 +11,6 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid lightgray;
 `;
 
 const LabelAndField = styled.li`

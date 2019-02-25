@@ -4,7 +4,7 @@
 }
 
 .form-creator-and-form form {
-    background-color: #F6F9B3;
+    background-color: #E7E8E8;
 }
 
 .form-creator-and-form .form-creator {
@@ -45,7 +45,6 @@
     justify-content: space-between;
     align-items: center;
     margin: 5px 0;
-    margin-left: 5%;
 }
 
 .fields-wrapper {
@@ -56,4 +55,18 @@
 .dropdown-options-buttons {
     display: flex;
     justify-content: flex-end;
+    position: relative;
+}
+
+.dropdown-options-buttons .add-new-option {
+    position: absolute;
+    left: 0;
+}
+
+.dropdown-option .label-and-option {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
 }

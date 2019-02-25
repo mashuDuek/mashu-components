@@ -57277,6 +57277,11 @@ function (_React$Component) {
         renderOptions.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "dropdown-option",
           key: i
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          text: "x",
+          onClick: _this.removeOption(i)
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "label-and-option"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_3__["default"], {
           text: "option text:"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -57285,10 +57290,7 @@ function (_React$Component) {
           type: "text",
           required: i === 0,
           value: option.text
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          text: "x",
-          onClick: _this.removeOption(i)
-        })));
+        }))));
       }
 
       return renderOptions;
@@ -57321,10 +57323,12 @@ function (_React$Component) {
         required: true
       })), this.renderOptions(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dropdown-options-buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-new-option"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        text: "add another option",
+        text: "add option",
         onClick: this.addOption
-      }), deletion, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      })), deletion, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         className: "add-to-form-button",
         text: "add to form",
         onClick: this.props.addOptions(toSendUp)
@@ -58587,7 +58591,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    border: 1px solid lightgray;\n"]);
+  var data = _taggedTemplateLiteral(["\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
