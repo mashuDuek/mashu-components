@@ -15,11 +15,11 @@ class InputCreator extends React.Component {
     };
 
     handleChange = (field) => (e) => {
-        this.setState({ [field]: e.target.value });
+        this.setState({ [field]: e.target.value, submitted: false });
     }
 
     handleType = (e) => {
-        this.setState({ type: e.target.value });
+        this.setState({ type: e.target.value, submitted: false });
     }
 
     handleSubmit = (e) => {
