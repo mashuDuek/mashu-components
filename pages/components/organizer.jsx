@@ -4,7 +4,9 @@ import { Route, HashRouter } from 'react-router-dom';
 import LandingPage from './landing_page';
 
 import FormCreator from './component_setup/forms/new_form';
-import Input from '../../src/stories/forms/input';
+import InputCreator from './component_setup/input/input_creator';
+
+// import Input from '../../src/stories/forms/input';
 import TextArea from '../../src/stories/forms/textarea';
 import Button from '../../src/stories/forms/button';
 
@@ -24,7 +26,7 @@ export default () => (
                 <div className="components">
                     <Route component={LandingPage} exact path="/"></Route>
                     <Route component={FormCreator} path="/form"></Route>
-                    <Route component={Input} path="/Input"></Route>
+                    <Route component={InputCreator} path="/input"></Route>
                     <Route component={TextArea} path="/textarea"></Route>
                     <Route component={Button} path="/button"></Route>
                     <Route component={Review} path="/review"></Route>

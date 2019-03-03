@@ -1,0 +1,31 @@
+.components .form-and-input-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.components .form-and-input-wrapper form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F6A6;
+    padding: 20px;
+}
+
+.form-and-input-wrapper form .label-and-input {
+    display: flex; 
+    justify-content: space-between;
+    margin: 5px 0px;
+}
+
+.form-and-input-wrapper .users-label-and-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E7E8E8;
+    margin-top: 20px;
+    padding: 20px;
+    width: 80%;
+}

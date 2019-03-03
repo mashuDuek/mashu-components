@@ -2,7 +2,6 @@ import React from 'react';
 import { merge } from 'lodash';
 
 import Dropdown from '../../../../src/packages/forms/dropdown';
-import Button from '../../../../src/packages/forms/button';
 import Label from '../../../../src/packages/forms/label';
 
 import DropdownOptions from './dropdown_options';

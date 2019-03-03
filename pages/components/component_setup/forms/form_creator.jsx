@@ -5,7 +5,6 @@ import FieldCreator from './field_creator';
 import Button from '../../../../src/packages/forms/button';
 import Input from '../../../../src/packages/forms/input';
 import Label from '../../../../src/packages/forms/label';
-import { tag } from 'postcss-selector-parser';
 
 class FormCreator extends React.Component {
     state = {
