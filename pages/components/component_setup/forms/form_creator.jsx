@@ -82,6 +82,13 @@ class FormCreator extends React.Component {
             );
         };
 
+        const addFieldButton = (
+            <Button key="y"
+                text="Add Field"
+                onClick={this.incrementFieldCount}>
+            </Button>
+        )
+
         const buttonTextField = (
             <div className="label-and-input submit-button" key="x">
                 <Label text="form submit button text:"></Label>
@@ -91,13 +98,13 @@ class FormCreator extends React.Component {
                 </Input>
             </div>
         );
-
+        
+        fieldsToRender.push(addFieldButton);
         fieldsToRender.push(buttonTextField);
         return fieldsToRender;
     };
 
     render() {
-        debugger
         const { props } = this.state;
         const fields = Object.values(props.fields);
         const toSubmit = { buttonText: props.buttonText, fields };
@@ -106,10 +113,6 @@ class FormCreator extends React.Component {
             <div className="form-creator">
                 Create-a-Form Form
                 {this.renderFieldForm()}
-                <Button
-                    text="Add Field"
-                    onClick={this.incrementFieldCount}>
-                </Button>
                 <Button 
                     text="Create Form"
                     onClick={this.props.createForm(toSubmit)}>

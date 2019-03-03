@@ -57638,6 +57638,11 @@ function (_React$Component) {
       }
 
       ;
+      var addFieldButton = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        key: "y",
+        text: "Add Field",
+        onClick: _this.incrementFieldCount
+      });
       var buttonTextField = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "label-and-input submit-button",
         key: "x"
@@ -57647,6 +57652,7 @@ function (_React$Component) {
         onChange: _this.handleButtonText,
         placeholder: "what will your submit button say?"
       }));
+      fieldsToRender.push(addFieldButton);
       fieldsToRender.push(buttonTextField);
       return fieldsToRender;
     });
@@ -57657,7 +57663,6 @@ function (_React$Component) {
   _createClass(FormCreator, [{
     key: "render",
     value: function render() {
-      debugger;
       var props = this.state.props;
       var fields = Object.values(props.fields);
       var toSubmit = {
@@ -57667,9 +57672,6 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-creator"
       }, "Create-a-Form Form", this.renderFieldForm(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        text: "Add Field",
-        onClick: this.incrementFieldCount
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         text: "Create Form",
         onClick: this.props.createForm(toSubmit)
       }));
