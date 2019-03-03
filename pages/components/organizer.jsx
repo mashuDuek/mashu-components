@@ -6,10 +6,11 @@ import LandingPage from './landing_page';
 import FormCreator from './component_setup/forms/new_form';
 import InputCreator from './component_setup/input/input_creator';
 import TextAreaCreator from './component_setup/textarea/textarea_creator';
+import ButtonCreator from './component_setup/button/button_creator';
 
 // import Input from '../../src/stories/forms/input';
 // import TextArea from '../../src/stories/forms/textarea';
-import Button from '../../src/stories/forms/button';
+// import Button from '../../src/stories/forms/button';
 
 import Review from '../../src/stories/reviews/review_item';
 import ReviewForm from '../../src/stories/reviews/review_form';
@@ -29,7 +30,7 @@ export default () => (
                     <Route component={FormCreator} path="/form"></Route>
                     <Route component={InputCreator} path="/input"></Route>
                     <Route component={TextAreaCreator} path="/textarea"></Route>
-                    <Route component={Button} path="/button"></Route>
+                    <Route component={ButtonCreator} path="/button"></Route>
                     <Route component={Review} path="/review"></Route>
                     <Route component={ReviewForm} path="/review-form"></Route>
                     <Route component={StarRating} path="/star-rating"></Route>

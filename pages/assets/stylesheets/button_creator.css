@@ -1,0 +1,31 @@
+.form-and-button {
+    width: 80%;
+}
+
+.form-and-button form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F6A6;
+    padding: 20px;
+}
+
+.form-and-button > button {
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.form-and-button .label-and-input {
+    display: flex; 
+    justify-content: space-between;
+    margin: 5px 0px;
+    align-items: center;
+}
+
+.form-and-button .label-and-input label {
+    width: 20%;
+}
+
+.form-and-button .label-and-input input {
+    width: 75%;
+}

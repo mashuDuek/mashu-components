@@ -52364,6 +52364,122 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./pages/components/component_setup/button/button_creator.jsx":
+/*!********************************************************************!*\
+  !*** ./pages/components/component_setup/button/button_creator.jsx ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../src/packages/forms/input */ "./src/packages/forms/input.jsx");
+/* harmony import */ var _src_packages_forms_label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../src/packages/forms/label */ "./src/packages/forms/label.jsx");
+/* harmony import */ var _src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../src/packages/forms/button */ "./src/packages/forms/button.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var ButtonCreator =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ButtonCreator, _React$Component);
+
+  function ButtonCreator() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, ButtonCreator);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(ButtonCreator)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      text: '',
+      submitted: false
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleText", function (e) {
+      _this.setState({
+        text: e.target.value,
+        submitted: false
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSubmit", function (e) {
+      e.preventDefault();
+
+      _this.setState({
+        submitted: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderButton", function () {
+      if (!_this.state.submitted) return null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        text: _this.state.text
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(ButtonCreator, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-and-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "label-and-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_label__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        text: "button text"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        required: true,
+        value: this.state.text,
+        placeholder: "enter button text",
+        onChange: this.handleText
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_packages_forms_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        text: "Create Button"
+      })), this.renderButton());
+    }
+  }]);
+
+  return ButtonCreator;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (ButtonCreator);
+
+/***/ }),
+
 /***/ "./pages/components/component_setup/forms/dropdown_options.jsx":
 /*!*********************************************************************!*\
   !*** ./pages/components/component_setup/forms/dropdown_options.jsx ***!
@@ -53657,7 +53773,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _component_setup_forms_new_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component_setup/forms/new_form */ "./pages/components/component_setup/forms/new_form.jsx");
 /* harmony import */ var _component_setup_input_input_creator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./component_setup/input/input_creator */ "./pages/components/component_setup/input/input_creator.jsx");
 /* harmony import */ var _component_setup_textarea_textarea_creator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./component_setup/textarea/textarea_creator */ "./pages/components/component_setup/textarea/textarea_creator.jsx");
-/* harmony import */ var _src_stories_forms_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../src/stories/forms/button */ "./src/stories/forms/button.jsx");
+/* harmony import */ var _component_setup_button_button_creator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./component_setup/button/button_creator */ "./pages/components/component_setup/button/button_creator.jsx");
 /* harmony import */ var _src_stories_reviews_review_item__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../src/stories/reviews/review_item */ "./src/stories/reviews/review_item.jsx");
 /* harmony import */ var _src_stories_reviews_review_form__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../src/stories/reviews/review_form */ "./src/stories/reviews/review_form.jsx");
 /* harmony import */ var _src_stories_reviews_star_rating__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../src/stories/reviews/star_rating */ "./src/stories/reviews/star_rating.jsx");
@@ -53668,9 +53784,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  // import Input from '../../src/stories/forms/input';
 // import TextArea from '../../src/stories/forms/textarea';
-
+// import Button from '../../src/stories/forms/button';
 
 
 
@@ -53698,7 +53815,7 @@ __webpack_require__.r(__webpack_exports__);
     component: _component_setup_textarea_textarea_creator__WEBPACK_IMPORTED_MODULE_5__["default"],
     path: "/textarea"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    component: _src_stories_forms_button__WEBPACK_IMPORTED_MODULE_6__["default"],
+    component: _component_setup_button_button_creator__WEBPACK_IMPORTED_MODULE_6__["default"],
     path: "/button"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     component: _src_stories_reviews_review_item__WEBPACK_IMPORTED_MODULE_7__["default"],
@@ -53739,9 +53856,9 @@ __webpack_require__.r(__webpack_exports__);
     to: "/input"
   }, "Input Creator"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/textarea"
-  }, "TextArea Field"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, "TextArea Creator"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/button"
-  }, "Button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  }, "Button Creator"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/review"
   }, "Review"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/review-form"
@@ -54596,31 +54713,6 @@ var stars = function stars(handler, rating) {
       rating = _ref.rating;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(InputList, null, stars(clickHandler, rating));
 });
-
-/***/ }),
-
-/***/ "./src/stories/forms/button.jsx":
-/*!**************************************!*\
-  !*** ./src/stories/forms/button.jsx ***!
-  \**************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _packages_forms_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../packages/forms/button */ "./src/packages/forms/button.jsx");
-
-
-
-var Btn = function Btn() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_packages_forms_button__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    text: "my button"
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Btn);
 
 /***/ }),
 
