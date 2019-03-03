@@ -70,6 +70,7 @@ class InputCreator extends React.Component {
             
         return (
             <div className="form-and-input-wrapper">
+                Create-an-Input Form  
                 <form onSubmit={this.handleSubmit}>
                     <div className="label-and-input">
                         <Label text="input label:"></Label>

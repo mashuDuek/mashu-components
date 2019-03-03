@@ -26,9 +26,10 @@ class ButtonCreator extends React.Component {
     render() {
         return (
             <div className="form-and-button">
+                Create-a-Button Form
                 <form onSubmit={this.handleSubmit}>
                     <div className="label-and-input">
-                        <Label text="button text"></Label>
+                        <Label text="button text:"></Label>
                         <InputComp
                             required={true}
                             value={this.state.text}
