@@ -18,6 +18,19 @@
     display: flex; 
     justify-content: space-between;
     margin: 5px 0px;
+    align-items: center;
+}
+
+.form-and-input-wrapper form .label-and-input label {
+    width: 20%;
+}
+
+.form-and-input-wrapper form .label-and-input input {
+    width: 75%;
+}
+
+.form-and-input-wrapper form .label-and-input select {
+    width: 76%;
 }
 
 .form-and-input-wrapper .users-label-and-input {
