@@ -16,18 +16,18 @@ class FormCreator extends React.Component {
         }
     };
 
-    addField = (field) => () => {
+    addField = (field) => (e) => {
+        e.preventDefault();
         const { tag, type, label, placeholder, options } = field;
         if (tag === 'dropdown' &&  (label === '' || options[0].text === '')) return;
         if ((tag === 'input' && (type === 'text' || type === ''))
             && (label === '' || placeholder === '')) return;
 
-
         const newState = merge({}, this.state);
         const keys = Object.keys(newState.props.fields);
         const newField = Object.assign({}, field, { success: true });
         newState.props.fields[keys.length] = newField;
-        
+
         this.setState({ 
             fieldCount: this.state.fieldCount, 
             props: newState.props
@@ -42,9 +42,10 @@ class FormCreator extends React.Component {
         e.stopPropagation();
         e.preventDefault();
         const newState = merge({}, this.state);
+        
         delete newState.props.fields[idx];
+        
         const newFields = {};
-
         Object.values(newState.props.fields).forEach((field, i) => {
             newFields[i] = field;
         });
@@ -96,6 +97,7 @@ class FormCreator extends React.Component {
     };
 
     render() {
+        debugger
         const { props } = this.state;
         const fields = Object.values(props.fields);
         const toSubmit = { buttonText: props.buttonText, fields };

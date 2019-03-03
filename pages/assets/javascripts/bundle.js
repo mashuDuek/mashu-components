@@ -57413,13 +57413,6 @@ function (_React$Component) {
       field: {}
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "successfulAdd", function () {
-      if (_this.props.success) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "success"
-      }, "Success!");
-      return null;
-    });
-
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (field) {
       return function (e) {
         _this.setState(_defineProperty({}, field, e.target.value));
@@ -57572,7 +57565,8 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addField", function (field) {
-      return function () {
+      return function (e) {
+        e.preventDefault();
         var tag = field.tag,
             type = field.type,
             label = field.label,
@@ -57663,6 +57657,7 @@ function (_React$Component) {
   _createClass(FormCreator, [{
     key: "render",
     value: function render() {
+      debugger;
       var props = this.state.props;
       var fields = Object.values(props.fields);
       var toSubmit = {

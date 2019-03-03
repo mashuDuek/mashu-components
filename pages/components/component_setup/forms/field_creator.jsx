@@ -14,11 +14,6 @@ class FieldCreator extends React.Component {
         field: {},
     };
 
-    successfulAdd = () => {
-        if (this.props.success) return <p className="success">Success!</p>;
-        return null;
-    };
-
     handleChange = (field) => (e) => {
         this.setState({ [field]: e.target.value });
     };
