@@ -16,7 +16,6 @@ import ReviewItem from './reviews/review_item';
 import SessionForm from './session_form/form';
 
 import NavBar from './nav_bar/nav_bar';
-import Nav from '../packages/nav_bar/nav_bar';
 
 // form module
 storiesOf('Forms', module)

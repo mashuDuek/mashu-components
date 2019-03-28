@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 const NavBar = styled.div`
     width: 100%;
     height: 10%;
-    background-color: lightgray;
+    background-color: lightgrey;
 `;
 
 const Nav = (props) => (
     <NavBar>
+        <p>text here as content to see the bar</p>
     </NavBar>
 );
 
