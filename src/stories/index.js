@@ -13,6 +13,11 @@ import ReviewForm from './reviews/review_form';
 import StarRating from './reviews/star_rating';
 import ReviewItem from './reviews/review_item';
 
+import SessionForm from './session_form/form';
+
+import NavBar from './nav_bar/nav_bar';
+import Nav from '../packages/nav_bar/nav_bar';
+
 // form module
 storiesOf('Forms', module)
   .add('Regular Form', Form)
@@ -28,3 +33,9 @@ storiesOf('Reviews', module)
   .add('StarRating', StarRating)
   .add('ReviewItem', ReviewItem)
   // .add('Review List', ReviewList)
+
+storiesOf('Session Form', module)
+  .add('Session Form', SessionForm)
+
+storiesOf('Nav Bar', module)
+  .add('Bar', NavBar)

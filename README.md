@@ -5,7 +5,6 @@
 #### Getting Started
 To start in development, run `yarn run storybook`. <br>
 Navigate to localhost:9009 if it didn't automatically open. <br>
-You shouldn't need to `npm install` or `yarn install` because `yarn.lock` is committed. 
 ***
 #### File structure 
 You'll work in `./src`. <br>

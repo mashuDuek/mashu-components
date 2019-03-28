@@ -22,7 +22,6 @@ class TextareaCreator extends React.Component {
             <Button text="delete field" onClick={this.props.removeField}>
             </Button> : null;
 
-
         return (
             <div className="fields-wrapper">
                 <div className="label-and-input">
