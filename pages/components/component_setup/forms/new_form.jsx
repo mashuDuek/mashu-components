@@ -6,7 +6,9 @@ class NewForm extends React.Component {
     state = { form: null };
 
     createForm = (form) => () => {
-        this.setState({ form });
+        this.setState({ form }, () => {
+            window.scrollTo(0, 1);
+        });
     };
 
     renderForm = () => {
